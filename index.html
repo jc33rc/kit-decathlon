@@ -147,6 +147,45 @@ details.point[open] .pchev::after{transform:rotate(-135deg);margin-top:4px}
 .btn.ghost{background:transparent;color:var(--blue);border:1px solid var(--blue)}
 .btn.ghost:hover{background:var(--blue-soft);color:var(--blue)}
 
+/* ---------- Welcome + tips ---------- */
+.welcome{margin:22px 0 0;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px 18px}
+.dots{display:flex;gap:6px;margin-bottom:18px}
+.dots i{flex:1;height:6px;border-radius:999px;background:var(--lane)}
+.dots i.on{background:var(--blue)}
+.welcome h2{margin-bottom:10px}
+.wlist{list-style:none;padding:0;display:grid;gap:10px;margin:12px 0 0}
+.wlist li{margin:0;padding:10px 12px;border-radius:12px;background:var(--gray-soft)}
+.flow{list-style:none;padding:0;margin:10px 0 0;counter-reset:f;display:grid;gap:12px}
+.flow li{counter-increment:f;margin:0;display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:start}
+.flow li::before{content:counter(f);width:32px;height:32px;border-radius:50%;background:var(--blue);color:var(--on-blue);display:grid;place-items:center;font:700 17px/1 var(--font-head)}
+.wnav{display:flex;gap:10px;margin-top:22px}
+.wnav .btn{flex:1;text-align:center}
+.wskip{text-align:center;margin:14px 0 0;font-size:15px}
+.area-msg{margin:10px 0 0;font-size:15px;padding:10px 12px;border-radius:10px;background:var(--blue-soft)}
+.area-msg.flash{animation:flash 1.4s ease}
+@keyframes flash{0%{background:var(--green-soft);box-shadow:0 0 0 3px var(--green)}100%{background:var(--blue-soft);box-shadow:0 0 0 0 transparent}}
+.tipbox{border:2px dashed var(--blue);border-radius:14px;padding:12px 14px;margin:12px 0;background:var(--surface)}
+.tipbox p{margin:0 0 10px;font-size:15.5px}
+.tipbox .btn{padding:9px 14px;font-size:15px}
+.howlink{margin:8px 2px 0;font-size:15px}
+.popt{display:none;font:600 12.5px/1 var(--font-body);font-style:normal;color:var(--gray);background:var(--gray-soft);border-radius:999px;padding:4px 8px;margin-top:6px}
+details.point.opt .popt{display:inline-block}
+
+/* ---------- Tienda tipo ---------- */
+.tt{display:grid;gap:8px;margin:10px 0}
+.tt div{padding:10px 12px;border-radius:10px;background:var(--gray-soft)}
+.tt b{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-weight:600}
+.tt b em{font-style:normal;font-family:var(--font-head);font-size:20px;white-space:nowrap}
+.tt span{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+.tline{margin:12px 0 0;padding:10px 12px;border-radius:10px;background:var(--amber-soft);font-size:15.5px}
+.krow{padding:10px 0;border-top:1px solid var(--line)}
+.krow:first-child{border-top:0;padding-top:0}
+.krow b{display:block;font:600 18px/1.2 var(--font-head)}
+.krow p{margin:2px 0 0;font-size:15.5px}
+.krow .ex{color:var(--muted);font-size:14.5px}
+.facts.six{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (min-width:640px){.facts.six{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
 /* ---------- Content pieces ---------- */
 .block{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0}
 .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:0}
@@ -293,6 +332,7 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
       </div>
     </div>
     <p class="legal">Guía de estudio no oficial, hecha con fuentes públicas a octubre de 2026. Tu avance y tus notas se guardan solo en este navegador.</p>
+    <p class="howlink"><a href="#/bienvenida">¿Cómo funciona esta guía?</a></p>
 
     <div class="area">
       <h3>¿Para qué cargo te preparas?</h3>
@@ -302,12 +342,56 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
         <button class="chip" type="button" data-area="mkt">Mercadeo</button>
         <button class="chip" type="button" data-area="admin">Administrativo</button>
       </div>
+      <p class="area-msg" aria-live="polite"></p>
     </div>
 
+    <div id="home-tip"></div>
     <h3 class="sect-title">Módulos</h3>
     <ol class="tiles" id="tiles"></ol>
+    <div id="opt-wrap"></div>
 
     <footer>Guía de estudio no oficial. Decathlon y sus marcas pertenecen a sus dueños. <a href="#/fuentes">Ver fuentes</a>.</footer>
+  </div>
+
+  <!-- ================= BIENVENIDA ================= -->
+  <div class="view" id="v-welcome">
+    <div class="welcome">
+      <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+      <section class="wstep">
+        <h2>Bienvenida a tu kit para Decathlon</h2>
+        <p>Esta guía te prepara para la entrevista en unos 80 minutos, que puedes repartir en varios días.</p>
+        <ul class="wlist">
+          <li><b>10 módulos cortos, en orden:</b> la empresa, Colombia, la entrevista, herramientas, KPIs, un quiz y un checklist.</li>
+          <li><b>Textos cortos.</b> Los videos son opcionales, solo para profundizar.</li>
+          <li><b>Tu avance se guarda en este celular.</b> Ábrela siempre desde el mismo navegador.</li>
+        </ul>
+      </section>
+      <section class="wstep" hidden>
+        <h2>¿Para qué cargo te preparas?</h2>
+        <p>Así sabemos qué herramientas cuentan en tu avance. Puedes cambiarlo después desde el inicio.</p>
+        <div class="chips" role="group" aria-label="Cargo">
+          <button class="chip" type="button" data-area="all">Aún no sé</button>
+          <button class="chip" type="button" data-area="mkt">Mercadeo</button>
+          <button class="chip" type="button" data-area="admin">Administrativo</button>
+        </div>
+        <p class="area-msg" aria-live="polite"></p>
+      </section>
+      <section class="wstep" hidden>
+        <h2>Así se avanza</h2>
+        <ol class="flow">
+          <li><span><b>Toca «Empezar».</b> Te lleva al módulo que sigue.</span></li>
+          <li><span><b>Abre un punto y léelo.</b> Son textos cortos; el video es opcional.</span></li>
+          <li><span><b>Toca «Marcar como estudiado».</b> El punto queda con ✓ y se abre el siguiente.</span></li>
+          <li><span><b>Haz el repaso rápido</b> al final del módulo. Si aciertas todo, queda validado.</span></li>
+          <li><span><b>Vuelve cuando quieras:</b> en el inicio, el botón «Continuar» te lleva a donde quedaste.</span></li>
+        </ol>
+      </section>
+      <div class="wnav">
+        <button class="btn ghost" type="button" id="w-back">Atrás</button>
+        <button class="btn" type="button" id="w-next">Siguiente</button>
+      </div>
+      <p class="wskip"><a href="#/" id="w-skip">Saltar la introducción</a></p>
+    </div>
   </div>
 
   <!-- ================= MÓDULO ================= -->
@@ -318,7 +402,7 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
       <p id="mod-desc"></p>
     </div>
     <div class="mprog" id="mod-prog"><div class="tbar"><i></i></div><span></span></div>
-    <p class="hint" id="mod-hint">Toca un punto para abrirlo. Al terminarlo, márcalo como estudiado y se abre el siguiente.</p>
+    <div class="tipbox hidden" id="mod-tip"><p><b>Así se avanza:</b> abre un punto, léelo y toca «Marcar como estudiado» al final. Se cierra y se abre el siguiente. Al terminar los puntos, haz el repaso rápido.</p><button class="btn ghost" type="button" data-tip="mod">Entendido</button></div>
     <div id="mod-points"></div>
     <div id="mod-quiz" class="hidden"><div class="quiz" id="quizbox" aria-live="polite"></div></div>
     <div id="mod-checks" class="hidden"><ul class="checks" id="checks"></ul></div>
@@ -372,11 +456,11 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
   <!-- ---------- Módulo: empresa ---------- -->
   <details class="point" data-mod="empresa" data-id="e-cifras" data-title="Las cifras clave" data-sub="Para citar dos o tres en la entrevista">
     <div class="pbody">
-      <p>Cifras del grupo a cierre de 2025. No hace falta memorizarlas todas: con tres bien dichas basta.</p>
+      <p>Cifras del grupo a cierre de 2025, en pesos colombianos. Decathlon reporta en euros; aquí se convirtieron a la tasa del 30 de octubre de 2026 (1 € ≈ $3.611), así que son aproximadas. Un billón es un millón de millones. No hace falta memorizarlas: con tres bien dichas basta.</p>
       <div class="facts">
-        <div class="fact"><b>20.700 M€</b><span>Volumen de ventas (GMV), +7,1%</span></div>
-        <div class="fact"><b>16.800 M€</b><span>Ventas netas, +4%</span></div>
-        <div class="fact"><b>910 M€</b><span>Resultado neto, +16%</span></div>
+        <div class="fact"><b>$74,8 billones</b><span>Volumen de ventas (GMV), +7,1%. En euros: 20.700 millones</span></div>
+        <div class="fact"><b>$60,7 billones</b><span>Ventas netas, +4%. En euros: 16.800 millones</span></div>
+        <div class="fact"><b>$3,3 billones</b><span>Resultado neto, +16%. En euros: 910 millones</span></div>
         <div class="fact"><b>1.902</b><span>Tiendas en 82 países y regiones</span></div>
         <div class="fact"><b>102.900</b><span>Colaboradores; el 51% es accionista</span></div>
         <div class="fact"><b>20,2%</b><span>De las ventas son digitales</span></div>
@@ -456,7 +540,7 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
         <div class="fact"><b>22</b><span>Tiendas a octubre de 2026, 10 en Bogotá</span></div>
         <div class="fact"><b>30–35</b><span>Meta de tiendas a 2030</span></div>
         <div class="fact"><b>10%</b><span>Meta de participación del mercado deportivo a 2030</span></div>
-        <div class="fact"><b>US$115 M</b><span>Ventas en 2025</span></div>
+        <div class="fact"><b>$364.000 millones</b><span>Ventas en 2025 (US$115 millones, a $3.167 por dólar)</span></div>
         <div class="fact"><b>~800</b><span>Colaboradores; más de 1.000 entre 2026 y 2027</span></div>
         <div class="fact"><b>2,5 M</b><span>Clientes en el país</span></div>
         <div class="fact"><b>40–50%</b><span>De las ventas salen de Bogotá</span></div>
@@ -598,16 +682,81 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
   <!-- ---------- Módulo: kpis (intro + glosario) ---------- -->
   <details class="point" data-mod="kpis" data-id="k-intro" data-title="Qué es un KPI" data-sub="Empieza por aquí">
     <div class="pbody">
-      <p>Un KPI (indicador clave de desempeño) es un número que dice si algo va bien o mal frente a una meta. En retail se miran todos los días para decidir qué ajustar: surtido, precios, personal, pauta.</p>
-      <p>Para cada KPI de este módulo vas a ver qué es, por qué le importa a Decathlon, cómo leerlo, una calculadora con un ejemplo y una frase para usarlo en la entrevista.</p>
+      <p>Un KPI (indicador clave de desempeño) es un número que dice si algo va bien o mal frente a una meta. En una tienda se miran todos los días para decidir qué ajustar: surtido, precios, personal, pauta.</p>
+      <p>Los ejemplos de este módulo usan una <strong>tienda tipo</strong> de Decathlon en Colombia, armada con datos públicos y algunos supuestos. El siguiente punto explica de dónde sale cada número. Después vienen los KPIs uno por uno, un caso de una sección y los KPIs propios de cada cargo.</p>
       <div class="say"><b>La regla de oro</b>Un KPI solo no dice mucho. Siempre compáralo: contra la meta, contra el año anterior o contra otra tienda.</div>
     </div>
   </details>
+  <details class="point" data-mod="kpis" data-id="k-tienda" data-title="La tienda tipo, en números" data-sub="Un mes de una tienda promedio, estimado">
+    <div class="pbody">
+      <p>Decathlon no publica cifras por tienda. Para practicar, este es un mes estimado de una tienda promedio en Colombia, hecho con datos públicos y algunos supuestos. Son órdenes de magnitud, no datos reales.</p>
+      <div class="tt">
+        <div><b>Ventas del mes <em>≈ $1.360 millones</em></b><span>Ventas de Colombia en 2025 (≈ $364.000 millones) entre unas 19 tiendas, quitando un 15% que suponemos online.</span></div>
+        <div><b>Visitantes <em>≈ 41.700</em></b><span>La tienda nueva de Medellín espera 500.000 visitantes al año.</span></div>
+        <div><b>Unidades vendidas <em>≈ 26.000</em></b><span>El país vende cerca de 7 millones de unidades al año.</span></div>
+        <div><b>Precio promedio por unidad <em>≈ $52.000</em></b><span>Ventas del país entre unidades del país.</span></div>
+        <div><b>Compras (tickets) <em>≈ 11.900</em></b><span>Supuesto: cada cliente lleva 2,2 productos por compra.</span></div>
+        <div><b>Ticket promedio <em>≈ $114.000</em></b><span>Ventas entre compras.</span></div>
+        <div><b>Conversión <em>≈ 28%</em></b><span>Compras entre visitantes.</span></div>
+        <div><b>Equipo <em>18 a 40 personas</em></b><span>La tienda nueva de Bogotá abrió con 18; el país tiene unas 800 personas en total.</span></div>
+      </div>
+      <div class="say"><b>Cómo usarlo</b>Si en la entrevista hablas de una tienda, piensa en estos órdenes de magnitud: más de mil millones de pesos al mes, unas 12.000 compras y un ticket de algo más de $100.000. Aclara siempre que son estimados tuyos.</div>
+    </div>
+  </details>
+
+  <details class="point" data-mod="kpis" data-id="k-seccion" data-title="Caso: la sección de running" data-sub="Analiza un mes como lo haría un líder de deporte">
+    <div class="pbody">
+      <p>Las tiendas Decathlon se organizan por deportes. Imagina que en la tienda tipo, running pesa el 15% de las ventas. Este fue su mes (cifras inventadas para el ejercicio):</p>
+      <div class="facts six">
+        <div class="fact"><b>$204 M</b><span>Ventas: 98% de la meta</span></div>
+        <div class="fact"><b>37%</b><span>Margen: 3 puntos menos que el mes anterior</span></div>
+        <div class="fact"><b>52 días</b><span>De inventario</span></div>
+        <div class="fact"><b>12</b><span>Referencias agotadas, sobre todo tallas medianas de tenis</span></div>
+        <div class="fact"><b>41%</b><span>De las ventas con cliente del Club</span></div>
+        <div class="fact"><b>4,5 de 5</b><span>Calificación promedio de los productos</span></div>
+      </div>
+      <p class="subhead">Cómo lo leerías</p>
+      <ul>
+        <li>Casi cumplió la meta, pero con menos margen: la promoción de tenis vendió volumen y sacrificó rentabilidad.</li>
+        <li>Las 12 referencias agotadas en tallas medianas son ventas perdidas: hay que revisar el pedido por tallas.</li>
+        <li>Con 52 días de inventario hay espacio para reponer lo que rota sin llenar la bodega.</li>
+        <li>El 41% de ventas identificadas deja un 59% de clientes que el Club todavía no conoce.</li>
+      </ul>
+      <div class="say"><b>Si te lo preguntan en la entrevista</b>"Antes de repetir la promoción, revisaría si el volumen extra compensó el margen perdido. Ajustaría el pedido de tallas medianas para no perder ventas, y en caja reforzaría la invitación al Club para conocer a ese 59%."</div>
+    </div>
+  </details>
+
+  <details class="point" data-mod="kpis" data-id="k-mkt" data-area="mkt" data-title="KPIs si tu cargo es de mercadeo" data-sub="Los que medirías en el día a día">
+    <div class="pbody">
+      <p class="small muted">Valores de ejemplo sobre la tienda tipo, para practicar.</p>
+      <div class="krow"><b>Tasa de identificación</b><p>Porcentaje de las ventas hechas por clientes del Club.</p><p class="ex">Ejemplo: 41% en running. Referencia real: en México, la membresía concentra cerca del 52% de la facturación.</p></div>
+      <div class="krow"><b>Miembros nuevos del Club</b><p>Cuántas personas se inscriben en el mes.</p><p class="ex">Ejemplo: si el 10% de las 11.900 compras son de clientes que se inscriben, serían unas 1.200 altas al mes.</p></div>
+      <div class="krow"><b>Base activa</b><p>Miembros que compraron o registraron actividad en los últimos 12 meses.</p><p class="ex">Meta real del país: crecerla entre 20% y 25% en 2027.</p></div>
+      <div class="krow"><b>Apertura y clics de correos</b><p>Qué tan relevantes son los mensajes para cada segmento.</p><p class="ex">Ejemplo: de 10.000 correos, 2.500 aperturas (25%) y 300 clics (3%).</p></div>
+      <div class="krow"><b>ROAS y CAC</b><p>Lo que deja la pauta y lo que cuesta conseguir un cliente nuevo.</p><p class="ex">Ejemplo: $20 millones de pauta que traen 400 clientes nuevos dan un CAC de $50.000.</p></div>
+      <div class="krow"><b>Tráfico y conversión</b><p>Cuánta gente llega a la tienda o a la web, y cuántos compran.</p><p class="ex">Ejemplo: 41.700 visitantes y 28% de conversión en la tienda tipo.</p></div>
+      <blockquote class="frase"><b>Dilo así</b>"Mediría el éxito de una campaña por ventas incrementales y clientes identificados nuevos, no solo por clics."</blockquote>
+    </div>
+  </details>
+
+  <details class="point" data-mod="kpis" data-id="k-admin" data-area="admin" data-title="KPIs si tu cargo es administrativo" data-sub="Los que medirías en el día a día">
+    <div class="pbody">
+      <p class="small muted">Valores de ejemplo sobre la tienda tipo, para practicar.</p>
+      <div class="krow"><b>Cumplimiento de presupuesto por centro de costo</b><p>Lo real frente a lo planeado, en ventas y en gastos.</p><p class="ex">Ejemplo: ventas al 96,9% de la meta y gastos de personal al 103%.</p></div>
+      <div class="krow"><b>Exactitud de inventario</b><p>Porcentaje de referencias cuyo conteo físico coincide con el sistema.</p><p class="ex">Ejemplo: en un conteo cíclico de 500 referencias, 485 cuadran: 97%.</p></div>
+      <div class="krow"><b>Merma</b><p>Inventario perdido por daño, error o robo, como porcentaje de las ventas.</p><p class="ex">Ejemplo: $13,6 millones en un mes de $1.357 millones: 1%.</p></div>
+      <div class="krow"><b>Gastos de personal sobre ventas</b><p>Cuánto de cada venta se va en nómina.</p><p class="ex">Ejemplo: una nómina de $95 millones al mes sería el 7% de las ventas.</p></div>
+      <div class="krow"><b>Días de cierre contable</b><p>Cuántos días hábiles tarda cerrar el mes.</p><p class="ex">Ejemplo: pasar de 8 a 5 días con conciliaciones semanales.</p></div>
+      <div class="krow"><b>Pagos a tiempo</b><p>Porcentaje de facturas de proveedores pagadas en el plazo acordado.</p><p class="ex">Ejemplo: 92% este mes.</p></div>
+      <blockquote class="frase"><b>Dilo así</b>"Más que acumular indicadores, me enfocaría en tres por tienda: cumplimiento de presupuesto, exactitud de inventario y merma, con una revisión mensual."</blockquote>
+    </div>
+  </details>
+
   <details class="point" data-mod="kpis" data-id="k-glosario" data-title="Glosario rápido de negocio" data-sub="Términos que pueden aparecer">
     <div class="pbody">
       <div class="gloss">
-        <div><b>GMV y ventas netas.</b> El GMV es el valor total vendido por todos sus canales, incluido por ejemplo lo que terceros venden en su marketplace. Las ventas netas son lo que Decathlon registra como ingreso propio. Por eso en 2025 reportó 20.700 M€ de GMV y 16.800 M€ de ventas netas.</div>
-        <div><b>EBITDA.</b> Ganancia antes de intereses, impuestos, depreciaciones y amortizaciones: mide la rentabilidad de la operación. Decathlon: 1.800 M€ en 2025, +21%.</div>
+        <div><b>GMV y ventas netas.</b> El GMV es el valor total vendido por todos sus canales, incluido por ejemplo lo que terceros venden en su marketplace. Las ventas netas son lo que Decathlon registra como ingreso propio. Por eso en 2025 reportó unos $74,8 billones de GMV y $60,7 billones de ventas netas (20.700 y 16.800 millones de euros).</div>
+        <div><b>EBITDA.</b> Ganancia antes de intereses, impuestos, depreciaciones y amortizaciones: mide la rentabilidad de la operación. Decathlon: unos $6,5 billones en 2025 (1.800 millones de euros), +21%.</div>
         <div><b>Quiebre de stock.</b> Cuando un producto se agota y se pierde la venta.</div>
         <div><b>Centro de costo.</b> Unidad a la que se le asignan gastos, como una tienda o un área, para controlar su presupuesto.</div>
         <div><b>CAC y CLV.</b> Lo que cuesta conseguir un cliente y lo que deja durante toda la relación. Si el CLV es mucho mayor que el CAC, la adquisición vale la pena.</div>
@@ -673,7 +822,7 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
 
   /* ================= Estado (solo en este navegador) ================= */
   var KEY = "dk-prep-v2";
-  var state = {done:{}, checks:{}, quizBest:0, stories:{}, val:{}, area:"all"};
+  var state = {done:{}, checks:{}, quizBest:0, stories:{}, val:{}, area:"all", onb:false, tips:{}};
   try {
     var raw = localStorage.getItem(KEY);
     if (raw) {
@@ -704,7 +853,7 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
     {id:"ambas", n:"Herramientas para cualquier cargo", d:"Workspace, hojas de cálculo, tableros, datos personales, NPS y omnicanalidad.", min:12},
     {id:"mercadeo", n:"Herramientas de mercadeo", d:"CRM, Decathlon Club, Analytics, pauta, diseño y localización.", min:12, area:"mkt"},
     {id:"admin", n:"Herramientas administrativas", d:"SAP, factura electrónica y control interno.", min:8, area:"admin"},
-    {id:"kpis", n:"KPIs para hablar con números", d:"Qué mide cada indicador, cómo leerlo y una calculadora.", min:12},
+    {id:"kpis", n:"KPIs para hablar con números", d:"Una tienda tipo en números, qué mide cada indicador y los KPIs de tu cargo.", min:18},
     {id:"estudiar", n:"Dónde seguir estudiando", d:"Cursos gratis y un plan de tres días.", min:5, optional:true},
     {id:"quiz", n:"Quiz final", d:"Todas las preguntas juntas para validar lo estudiado.", min:8, kind:"quiz"},
     {id:"checklist", n:"Checklist del día antes", d:"Lo práctico para llegar lista.", min:5, kind:"checklist"}
@@ -715,6 +864,9 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
     if (m.area && state.area !== "all" && m.area !== state.area) return false;
     return true;
   }
+  function excluded(m){ return !!(m.area && state.area !== "all" && m.area !== state.area); }
+  function mainSeq(){ return MODULES.filter(function(m){ return !excluded(m); }); }
+  function pointCounted(el){ var a = el.getAttribute("data-area"); return !(a && state.area !== "all" && a !== state.area); }
 
   /* ================= Videos y enlaces de estudio ================= */
   function videoBlock(v, extra){
@@ -887,57 +1039,65 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
     {id:"ticket", n:"Ticket promedio", s:"Cuánto gasta cada cliente por compra",
      que:"Cuánto gasta, en promedio, cada cliente en una compra.",
      por:"Con precios bajos, cada peso extra por compra pesa mucho. Se sube con venta cruzada: tenis más medias más botella.",
-     leer:"Compáralo contra el mismo mes del año anterior y entre tiendas. Si baja mientras suben las transacciones, puede ser buena señal: llegan clientes nuevos con compras de entrada.",
-     f:"Ventas ÷ número de transacciones", i:[["Ventas ($)",45000000],["Transacciones",750]],
+     leer:"Compáralo contra el mismo mes del año anterior y entre tiendas. Si baja mientras suben las compras, puede ser buena señal: llegan clientes nuevos con compras de entrada.",
+     tienda:"unos $114.000 por compra.",
+     f:"Ventas ÷ número de compras", i:[["Ventas del mes ($)",1357000000],["Compras del mes",11900]],
      c:function(a,b){ return b ? "$" + nf0.format(a/b) + " por compra" : "—"; },
      say:"Más que subir precios, prefiero subir el ticket con venta cruzada: el asesor que recomienda las medias correctas con los tenis mejora la experiencia y la venta."},
     {id:"upt", n:"Unidades por ticket (UPT)", s:"Cuántos productos lleva cada cliente",
      que:"Cuántos productos lleva, en promedio, cada cliente en una compra.",
      por:"Es el indicador más directo de la venta cruzada en tienda y del trabajo de los asesores.",
      leer:"Míralo junto al ticket promedio. Si el UPT sube pero el ticket no, se están vendiendo más productos baratos.",
-     f:"Unidades vendidas ÷ número de transacciones", i:[["Unidades vendidas",1650],["Transacciones",750]],
+     tienda:"unas 2,2 unidades por compra (es un supuesto del ejemplo).",
+     f:"Unidades vendidas ÷ número de compras", i:[["Unidades del mes",26000],["Compras del mes",11900]],
      c:function(a,b){ return b ? nf1.format(a/b) + " unidades por compra" : "—"; },
-     say:"Si veo un UPT bajo en una categoría como running, pensaría en exhibir juntos los complementos y en entrenar al equipo para recomendarlos."},
+     say:"Si veo un UPT bajo en una sección como running, pensaría en exhibir juntos los complementos y en entrenar al equipo para recomendarlos."},
     {id:"margen", n:"Margen bruto", s:"Lo que queda de cada venta después del costo",
      que:"El porcentaje de cada venta que queda después de pagar lo que costó el producto.",
      por:"Decathlon compite con precio bajo. Su margen viene del modelo integrado, porque diseña y produce sus marcas, no de subir precios.",
-     leer:"Compáralo entre categorías y antes y después de una promoción. Un descuento fuerte puede subir ventas y bajar el margen total.",
-     f:"(Ventas − costo de lo vendido) ÷ ventas", i:[["Ventas ($)",118000000],["Costo de lo vendido ($)",70800000]],
+     leer:"Compáralo entre secciones y antes y después de una promoción. Un descuento fuerte puede subir ventas y bajar el margen total.",
+     tienda:"Decathlon no publica su margen bruto; el ejemplo supone 40%.",
+     f:"(Ventas − costo de lo vendido) ÷ ventas", i:[["Ventas del mes ($)",1357000000],["Costo de lo vendido ($)",814000000]],
      c:function(a,b){ return a ? nf1.format((a-b)/a*100) + "% de margen" : "—"; },
      say:"Antes de aprobar una promoción miraría el margen total que deja, no solo cuánto suben las ventas."},
     {id:"rot", n:"Rotación de inventario", s:"Qué tan rápido se vende el stock",
      que:"Cuántas veces al año se vende y se repone el inventario. Los días de inventario dicen cuántos días alcanzaría el stock sin reponer.",
      por:"Con tiendas nuevas abriendo, inventario quieto es plata quieta. Y en temporada, lo de fin de año tiene que salir a tiempo.",
-     leer:"Más rotación suele ser mejor, pero demasiada puede significar productos agotados. Compárala por categoría: no rota igual una bicicleta que unas medias.",
-     f:"Costo de lo vendido ÷ inventario promedio", i:[["Costo de lo vendido al año ($)",1200000000],["Inventario promedio ($)",300000000]],
+     leer:"Más rotación suele ser mejor, pero demasiada puede significar productos agotados. Compárala por sección: no rota igual una bicicleta que unas medias.",
+     tienda:"el ejemplo supone un inventario promedio de $2.440 millones para una tienda que vende unos $16.300 millones al año.",
+     f:"Costo de lo vendido ÷ inventario promedio", i:[["Costo de lo vendido al año ($)",9774000000],["Inventario promedio ($)",2440000000]],
      c:function(a,b){ if (!a || !b) return "—"; var r = a/b; return nf1.format(r) + " veces al año, " + nf0.format(365/r) + " días"; },
-     say:"Revisaría la rotación por categoría para detectar referencias quietas a tiempo y liberar espacio y caja antes de la temporada."},
+     say:"Revisaría la rotación por sección para detectar referencias quietas a tiempo y liberar espacio y caja antes de la temporada."},
     {id:"conv", n:"Tasa de conversión", s:"De los que entran, cuántos compran",
      que:"De cada 100 personas que entran a la tienda o a la web, cuántas compran.",
      por:"Dice si el tráfico se está convirtiendo en ventas. En tienda sale del conteo de personas; online, de Google Analytics.",
      leer:"Mucho tráfico con baja conversión apunta a problemas de surtido, precio, atención o filas. Poco tráfico con alta conversión pide más visibilidad.",
-     f:"Transacciones ÷ visitantes", i:[["Transacciones",750],["Visitantes",5000]],
+     tienda:"unas 11.900 compras de 41.700 visitantes, cerca de 28%.",
+     f:"Compras ÷ visitantes", i:[["Compras del mes",11900],["Visitantes del mes",41700]],
      c:function(a,b){ return b ? nf1.format(a/b*100) + "% compra" : "—"; },
      say:"Si la conversión cae un fin de semana, miraría primero las filas en caja y la disponibilidad de tallas antes de pensar en precio."},
     {id:"nps", n:"NPS", s:"Qué tanto recomiendan la marca",
      que:"Qué tan dispuestos están los clientes a recomendar la marca, en una escala de −100 a +100.",
      por:"Mide la experiencia completa: producto, tienda y servicio. Las opiniones también ayudan a mejorar las marcas propias.",
      leer:"Por encima de 0 hay más promotores que detractores; por encima de 50 es excelente. Lo valioso son los comentarios de los detractores.",
+     tienda:"de 200 encuestas en el mes, 120 promotores (60%) y 30 detractores (15%). Es un ejemplo.",
      f:"% promotores − % detractores", i:[["% promotores",60],["% detractores",15]],
      c:function(a,b){ return nf0.format(a-b) + " puntos"; },
      say:"El número es la alarma; el valor está en leer qué dicen los detractores y cerrar el ciclo con una acción."},
     {id:"roas", n:"ROAS", s:"Ventas por cada peso en publicidad",
      que:"Cuánto vuelve en ventas por cada peso invertido en publicidad digital.",
      por:"Ayuda a decidir dónde poner el presupuesto de pauta entre campañas y canales.",
-     leer:"Depende del margen: con un margen del 30%, un ROAS de 3 no alcanza a cubrir el costo del producto. Y mira también el impacto en tienda, no solo online.",
-     f:"Ventas atribuidas ÷ inversión en pauta", i:[["Ventas atribuidas ($)",20000000],["Inversión ($)",5000000]],
+     leer:"Depende del margen: con el 40% de la tienda tipo, un ROAS por debajo de 2,5 no alcanza a cubrir el costo del producto. Y mira también el impacto en tienda, no solo online.",
+     tienda:"una campaña local de pádel con $20 millones de pauta que trae $90 millones en ventas. Es un ejemplo.",
+     f:"Ventas atribuidas ÷ inversión en pauta", i:[["Ventas atribuidas ($)",90000000],["Inversión ($)",20000000]],
      c:function(a,b){ return b ? nf1.format(a/b) + "x" : "—"; },
-     say:"No miraría el ROAS solo: lo cruzaría con el margen de la categoría para saber si la campaña de verdad deja plata."},
+     say:"No miraría el ROAS solo: lo cruzaría con el margen de la sección para saber si la campaña de verdad deja plata."},
     {id:"presu", n:"Cumplimiento de presupuesto", s:"Lo real frente a lo planeado",
      que:"Qué porcentaje del presupuesto se ha alcanzado o gastado: lo real frente a lo planeado.",
      por:"Es la base del control por tienda o centro de costo, clave cuando se abren tiendas nuevas.",
      leer:"En ventas, pasar de 100% es bueno; en gastos, pasar de 100% es alerta. Muchas empresas usan un semáforo, por ejemplo verde dentro de ±5% y rojo más allá de ±10%.",
-     f:"Real ÷ presupuesto × 100", i:[["Real ($)",47500000],["Presupuesto ($)",50000000]],
+     tienda:"vendió $1.357 millones contra una meta de $1.400 millones. Es un ejemplo.",
+     f:"Real ÷ presupuesto × 100", i:[["Real ($)",1357000000],["Presupuesto ($)",1400000000]],
      c:function(a,b){ return b ? nf1.format(a/b*100) + "% del presupuesto" : "—"; },
      say:"Más que el número, me importa explicar la desviación: qué la causó y qué vamos a hacer."}
   ];
@@ -946,6 +1106,7 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
     var body = '<dl class="kv"><dt>Qué es</dt><dd>' + esc(k.que) + '</dd>'
       + '<dt>Por qué le importa a Decathlon</dt><dd>' + esc(k.por) + '</dd>'
       + '<dt>Cómo leerlo</dt><dd>' + esc(k.leer) + '</dd></dl>'
+      + '<p class="tline"><b>En la tienda tipo:</b> ' + esc(k.tienda) + '</p>'
       + '<div class="calc" data-k="' + idx + '"><p class="f"><strong>Fórmula:</strong> ' + esc(k.f) + '. Cambia los valores para probar.</p><div class="in">'
       + k.i.map(function(p){ return '<label>' + esc(p[0]) + '<input type="number" inputmode="decimal" step="any" min="0" value="' + p[1] + '"></label>'; }).join("")
       + '</div><output></output></div>'
@@ -1000,13 +1161,20 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
      how:["Escucha y reconoce.","Resuelve dentro de la política o escala rápido.","Registra el caso para corregir la causa."],
      ej:"“Lo escucho y le explico qué puedo hacer ya. Después registro la causa: si se repite, es un problema de proceso, no de ese cliente.”"}
   ];
-  $("#qlist").innerHTML = QS.map(function(x){
-    return '<details class="qa"><summary><span>' + esc(x.q) + '</span><span class="area-t">' + esc(x.a) + '</span></summary><div class="qb">'
-      + '<ul>' + x.how.map(function(h){ return '<li>' + esc(h) + '</li>'; }).join("") + '</ul>'
-      + '<div class="ej"><b>Ejemplo:</b> ' + esc(x.ej) + '</div>'
-      + (x.note ? '<div class="note">' + esc(x.note) + '</div>' : '')
-      + '</div></details>';
-  }).join("");
+  function renderQS(){
+    var mine = state.area === "mkt" ? "Mercadeo" : state.area === "admin" ? "Administrativa" : null;
+    function rank(x){ if (x.a === "Todas") return 0; if (!mine || x.a === mine) return 1; return 2; }
+    var list = QS.map(function(x, i){ return {x:x, i:i}; }).sort(function(p, q){ return rank(p.x) - rank(q.x) || p.i - q.i; });
+    $("#qlist").innerHTML = list.map(function(o){
+      var x = o.x, opt = rank(x) === 2;
+      return '<details class="qa"><summary><span>' + esc(x.q) + '</span><span class="area-t">' + esc(x.a) + (opt ? ' (opcional)' : '') + '</span></summary><div class="qb">'
+        + '<ul>' + x.how.map(function(hw){ return '<li>' + esc(hw) + '</li>'; }).join("") + '</ul>'
+        + '<div class="ej"><b>Ejemplo:</b> ' + esc(x.ej) + '</div>'
+        + (x.note ? '<div class="note">' + esc(x.note) + '</div>' : '')
+        + '</div></details>';
+    }).join("");
+  }
+  renderQS();
 
   /* ================= Historias STAR ================= */
   var STORIES = {
@@ -1088,7 +1256,9 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
      w:"1.200 ÷ 300 = 4 veces al año, o sea unos 91 días de inventario (365 ÷ 4)."},
     {m:"kpis", q:"Si el UPT sube pero el ticket promedio no, ¿qué suele estar pasando?", o:["Se venden más productos, pero más baratos","Bajó el tráfico","Subieron los precios","Hay un error en caja"], a:0,
      w:"Más unidades por compra con el mismo valor: el cliente lleva más productos de bajo precio."},
-    {m:"kpis", q:"Decathlon reportó 20.700 M€ de GMV y 16.800 M€ de ventas netas. ¿Por qué el GMV es mayor?", o:["Porque incluye todo lo vendido por sus canales, como ventas de terceros en su marketplace","Porque es un error contable","Porque incluye el valor de las tiendas","Porque está en dólares"], a:0,
+    {m:"kpis", q:"En el caso de running, las ventas llegaron al 98% de la meta pero el margen bajó 3 puntos. ¿Qué es lo más probable?", o:["La promoción de tenis vendió volumen pero sacrificó rentabilidad","Subieron los precios","Bajó el tráfico de la tienda","Hubo un error en el inventario"], a:0,
+     w:"Más volumen con menos margen es la huella típica de una promoción. Hay que revisar si el volumen extra compensó."},
+    {m:"kpis", q:"Decathlon reportó unos $74,8 billones de GMV y $60,7 billones de ventas netas en 2025. ¿Por qué el GMV es mayor?", o:["Porque incluye todo lo vendido por sus canales, como ventas de terceros en su marketplace","Porque es un error contable","Porque incluye el valor de las tiendas","Porque está en dólares"], a:0,
      w:"El GMV mide todo lo que pasa por sus canales; las ventas netas son lo que registra como ingreso propio."}
   ];
 
@@ -1122,7 +1292,7 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
     var mid = el.getAttribute("data-mod");
     var sub = el.getAttribute("data-sub");
     var s = document.createElement("summary");
-    s.innerHTML = '<span class="pnum"></span><span class="ptitle">' + esc(el.getAttribute("data-title")) + (sub ? '<small>' + esc(sub) + '</small>' : '') + '</span><span class="pchev" aria-hidden="true"></span>';
+    s.innerHTML = '<span class="pnum"></span><span class="ptitle">' + esc(el.getAttribute("data-title")) + (sub ? '<small>' + esc(sub) + '</small>' : '') + '<em class="popt">Opcional para tu cargo</em></span><span class="pchev" aria-hidden="true"></span>';
     el.insertBefore(s, el.firstChild);
     var btn = document.createElement("button");
     btn.type = "button"; btn.className = "done"; btn.setAttribute("data-done", el.getAttribute("data-id"));
@@ -1131,14 +1301,16 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
   });
   // Orden de herramientas dentro de cada módulo: la leyenda va primero en "ambas"
   POINTS.ambas.sort(function(a, b){ return (a.getAttribute("data-id") === "h-leyenda" ? -1 : 0) - (b.getAttribute("data-id") === "h-leyenda" ? -1 : 0); });
+  var KRANK = {"k-intro":0, "k-tienda":1, "k-seccion":3, "k-mkt":4, "k-admin":5, "k-glosario":6};
   POINTS.kpis.sort(function(a, b){
-    function r(x){ var id = x.getAttribute("data-id"); return id === "k-intro" ? 0 : id === "k-glosario" ? 2 : 1; }
+    function r(x){ var id = x.getAttribute("data-id"); return id in KRANK ? KRANK[id] : 2; }
     return r(a) - r(b);
   });
 
   function paintPoint(el, n){
     var id = el.getAttribute("data-id"), on = !!state.done[id];
     el.classList.toggle("is-done", on);
+    el.classList.toggle("opt", !pointCounted(el));
     el.querySelector(".pnum").textContent = on ? "✓" : String(n);
     var b = el.querySelector(".done");
     b.setAttribute("aria-pressed", on ? "true" : "false");
@@ -1152,7 +1324,7 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
       var d = 0; CHECKS.forEach(function(c, i){ if (state.checks[i]) d++; });
       return {done:d, total:CHECKS.length, label:d + " de " + CHECKS.length + " listos", pct:d / CHECKS.length * 100};
     }
-    var ps = POINTS[m.id], dd = 0;
+    var ps = POINTS[m.id].filter(pointCounted), dd = 0;
     ps.forEach(function(p){ if (state.done[p.getAttribute("data-id")]) dd++; });
     return {done:dd, total:ps.length, label:dd + " de " + ps.length + " estudiados", pct: ps.length ? dd / ps.length * 100 : 0};
   }
@@ -1172,41 +1344,71 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
   }
 
   function nextTarget(){
-    for (var i = 0; i < MODULES.length; i++){
-      var m = MODULES[i];
-      if (!counted(m) || isComplete(m)) continue;
+    var seq = mainSeq();
+    for (var i = 0; i < seq.length; i++){
+      var m = seq[i];
+      if (m.optional || isComplete(m)) continue;
       return m;
     }
     return null;
   }
 
   /* ================= Inicio ================= */
+  var AREA_MSG = {
+    all:"Cuentan los dos módulos de herramientas: mercadeo y administrativo.",
+    mkt:"Listo: te preparas para mercadeo. “Herramientas administrativas” pasó a Opcionales, al final de la lista, y ya no cuenta en tu avance.",
+    admin:"Listo: te preparas para el cargo administrativo. “Herramientas de mercadeo” pasó a Opcionales, al final de la lista, y ya no cuenta en tu avance."
+  };
+  function syncArea(flash){
+    $$("button[data-area]").forEach(function(c){ c.setAttribute("aria-pressed", c.getAttribute("data-area") === state.area ? "true" : "false"); });
+    $$(".area-msg").forEach(function(p){
+      p.textContent = AREA_MSG[state.area];
+      if (flash){ p.classList.remove("flash"); void p.offsetWidth; p.classList.add("flash"); }
+    });
+  }
+  function tileHTML(m, num){
+    var s = modStats(m), comp = s.done >= s.total, exc = excluded(m);
+    var badges = "";
+    if (comp) badges += '<span class="badge b-ok">Completo</span>';
+    if (state.val[m.id]) badges += '<span class="badge b-val">Repaso aprobado</span>';
+    if (m.optional) badges += '<span class="badge b-opt">Opcional</span>';
+    return '<li><a class="tile' + (comp ? " complete" : "") + (exc ? " dim" : "") + '" href="#/m/' + m.id + '">'
+      + '<span class="num">' + (comp ? "✓" : num) + '</span>'
+      + '<h3>' + esc(m.n) + '</h3><p>' + esc(m.d) + '</p>'
+      + '<div class="tbar"><i style="width:' + s.pct + '%"></i></div>'
+      + '<div class="tmeta"><span>' + s.label + '</span><span>' + m.min + ' min</span>' + badges + '</div></a></li>';
+  }
   function renderHome(){
-    $$(".area .chip").forEach(function(c){ c.setAttribute("aria-pressed", c.getAttribute("data-area") === state.area ? "true" : "false"); });
+    syncArea(false);
     var started = Object.keys(state.done).some(function(k){ return state.done[k]; }) || state.quizBest > 0;
-    var t = nextTarget(), cta = $("#cta");
+    var seq = mainSeq(), t = nextTarget(), cta = $("#cta");
     if (!t){
       cta.href = "#/m/checklist"; cta.innerHTML = "Todo listo<small>Revisa el checklist antes de salir</small>";
     } else {
       cta.href = "#/m/" + t.id;
-      cta.innerHTML = (started ? "Continuar donde quedaste" : "Empezar") + "<small>Módulo " + (t.i + 1) + ": " + esc(t.n) + "</small>";
+      cta.innerHTML = (started ? "Continuar donde quedaste" : "Empezar") + "<small>Módulo " + (seq.indexOf(t) + 1) + ": " + esc(t.n) + "</small>";
     }
-    $("#tiles").innerHTML = MODULES.map(function(m){
-      var s = modStats(m), comp = s.done >= s.total, cnt = counted(m);
-      var badges = "";
-      if (comp) badges += '<span class="badge b-ok">Completo</span>';
-      if (state.val[m.id]) badges += '<span class="badge b-val">Repaso aprobado</span>';
-      if (m.optional) badges += '<span class="badge b-opt">Opcional</span>';
-      else if (!cnt) badges += '<span class="badge b-opt">Opcional para tu cargo</span>';
-      return '<li><a class="tile' + (comp ? " complete" : "") + (!cnt && !m.optional ? " dim" : "") + '" href="#/m/' + m.id + '">'
-        + '<span class="num">' + (comp ? "✓" : (m.i + 1)) + '</span>'
-        + '<h3>' + esc(m.n) + '</h3><p>' + esc(m.d) + '</p>'
-        + '<div class="tbar"><i style="width:' + s.pct + '%"></i></div>'
-        + '<div class="tmeta"><span>' + s.label + '</span><span>' + m.min + ' min</span>' + badges + '</div></a></li>';
-    }).join("");
+    $("#tiles").innerHTML = seq.map(function(m, i){ return tileHTML(m, i + 1); }).join("");
+    var ex = MODULES.filter(excluded);
+    $("#opt-wrap").innerHTML = ex.length ? '<h3 class="sect-title">Opcionales para tu cargo</h3><ol class="tiles">' + ex.map(function(m){ return tileHTML(m, "–"); }).join("") + '</ol>' : "";
+    $("#home-tip").innerHTML = (state.onb && !state.tips.home)
+      ? '<div class="tipbox"><p><b>Cómo usar el inicio:</b> el botón azul de arriba te lleva siempre al siguiente punto pendiente. La lista de módulos sirve para volver a un tema puntual cuando quieras repasar.</p><button class="btn ghost" type="button" data-tip="home">Entendido</button></div>'
+      : "";
   }
-  $$(".area .chip").forEach(function(c){
-    c.addEventListener("click", function(){ state.area = c.getAttribute("data-area"); save(); renderHome(); updateProgress(); });
+  document.addEventListener("click", function(e){
+    var c = e.target.closest("button[data-area]");
+    if (c){
+      state.area = c.getAttribute("data-area"); save();
+      syncArea(true); renderQS();
+      if ($("#v-home").classList.contains("on")) renderHome();
+      updateProgress();
+      return;
+    }
+    var t = e.target.closest("[data-tip]");
+    if (t){
+      state.tips[t.getAttribute("data-tip")] = true; save();
+      var box = t.closest(".tipbox"); if (box) box.classList.add("hidden");
+    }
   });
 
   /* ================= Módulo ================= */
@@ -1225,11 +1427,12 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
   function renderModule(mid, focusId){
     var m = MOD[mid]; curMod = m;
     returnPoints();
-    $("#crumb-pos").textContent = "Módulo " + (m.i + 1) + " de " + MODULES.length;
+    var seq = mainSeq();
+    $("#crumb-pos").textContent = excluded(m) ? "Opcional para tu cargo" : "Módulo " + (seq.indexOf(m) + 1) + " de " + seq.length;
     $("#mod-title").textContent = m.n;
-    $("#mod-desc").textContent = m.d + (m.optional ? " Es opcional: no cuenta en el avance." : (!counted(m) ? " No es de tu cargo: queda como opcional." : ""));
+    $("#mod-desc").textContent = m.d + (m.optional ? " Es opcional: no cuenta en el avance." : (excluded(m) ? " No es de tu cargo: no cuenta en tu avance." : ""));
     var isPoints = !m.kind;
-    $("#mod-hint").classList.toggle("hidden", !isPoints);
+    $("#mod-tip").classList.toggle("hidden", !isPoints || !!state.tips.mod);
     $("#mod-quiz").classList.toggle("hidden", m.kind !== "quiz");
     $("#mod-checks").classList.toggle("hidden", m.kind !== "checklist");
     if (isPoints){
@@ -1238,7 +1441,7 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
         paintPoint(el, i + 1);
         el.open = false;
         container.appendChild(el);
-        if (!first && !state.done[el.getAttribute("data-id")]) first = el;
+        if (!first && !state.done[el.getAttribute("data-id")] && pointCounted(el)) first = el;
       });
       var target = focusId ? $('details.point[data-id="' + focusId + '"]', container) : null;
       (target || first || POINTS[mid][0]).open = true;
@@ -1246,8 +1449,8 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
     }
     if (m.kind === "quiz"){ qi = 0; qs = 0; renderQ(); }
     renderRepaso(mid);
-    // Navegación
-    var prev = MODULES[m.i - 1], next = MODULES[m.i + 1];
+    var nav = MODULES.filter(function(x){ return !excluded(x) || x === m; });
+    var k = nav.indexOf(m), prev = nav[k - 1], next = nav[k + 1];
     $("#mod-nav").innerHTML = (next ? '<a class="btn" href="#/m/' + next.id + '">Siguiente: ' + esc(next.n) + '</a>' : '<a class="btn" href="#/">Volver al inicio</a>')
       + (prev ? '<a class="btn ghost" href="#/m/' + prev.id + '">Anterior</a>' : '')
       + (next ? '<a class="btn ghost" href="#/">Inicio</a>' : '');
@@ -1271,7 +1474,7 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
     refreshModHead(); updateProgress();
     if (state.done[id]){
       var idx = list.indexOf(el), nxt = null;
-      for (var k = idx + 1; k < list.length; k++){ if (!state.done[list[k].getAttribute("data-id")]) { nxt = list[k]; break; } }
+      for (var k = idx + 1; k < list.length; k++){ if (!state.done[list[k].getAttribute("data-id")] && pointCounted(list[k])) { nxt = list[k]; break; } }
       el.open = false;
       if (nxt){
         nxt.open = true;
@@ -1315,7 +1518,9 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
       if (good){
         state.val[curMod.id] = true; save();
         $(".repaso", this).classList.add("passed");
-        res.innerHTML = '<span style="color:var(--green)">Repaso aprobado: módulo validado.</span>';
+        var extra = "";
+        if (!state.tips.val){ state.tips.val = true; save(); extra = '<br><span style="font-weight:400">Es tu primer módulo validado: en el inicio aparece con ✓. Sigue con el botón “Siguiente” de abajo.</span>'; }
+        res.innerHTML = '<span style="color:var(--green)">Repaso aprobado: módulo validado.</span>' + extra;
       } else {
         res.innerHTML = 'Vuelve a los puntos que fallaste y repite. <button class="btn ghost" type="button" id="rretry" style="margin-top:10px">Repetir repaso</button>';
       }
@@ -1359,6 +1564,27 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
     $("#qnext").focus();
   });
 
+  /* ================= Bienvenida ================= */
+  var wstep = 0, WSTEPS = $$(".wstep");
+  function go(hash){ if (location.hash === hash) route(); else location.hash = hash; }
+  function renderWelcome(){
+    WSTEPS.forEach(function(s, i){ s.hidden = i !== wstep; });
+    $$(".dots i").forEach(function(d, i){ d.classList.toggle("on", i <= wstep); });
+    $("#w-back").classList.toggle("hidden", wstep === 0);
+    $("#w-next").textContent = wstep === WSTEPS.length - 1 ? (state.onb ? "Volver a la guía" : "Empezar el módulo 1") : "Siguiente";
+    syncArea(false);
+  }
+  $("#w-back").addEventListener("click", function(){ if (wstep > 0){ wstep--; renderWelcome(); window.scrollTo(0, 0); } });
+  $("#w-next").addEventListener("click", function(){
+    if (wstep < WSTEPS.length - 1){ wstep++; renderWelcome(); window.scrollTo(0, 0); return; }
+    var wasOnb = state.onb;
+    state.onb = true; save();
+    if (wasOnb){ go("#/"); return; }
+    var t = nextTarget();
+    go("#/m/" + (t ? t.id : "empresa"));
+  });
+  $("#w-skip").addEventListener("click", function(e){ e.preventDefault(); state.onb = true; save(); go("#/"); });
+
   /* ================= Rutas ================= */
   function show(id){ $$(".view").forEach(function(v){ v.classList.toggle("on", v.id === id); }); }
   function route(){
@@ -1369,6 +1595,8 @@ footer{padding:28px 0 0;color:var(--muted);font-size:14px}
       if (!mm[2]) window.scrollTo(0, 0);
     } else if (h === "#/fuentes"){
       show("v-fuentes"); curMod = null; window.scrollTo(0, 0);
+    } else if (h === "#/bienvenida" || !state.onb){
+      show("v-welcome"); curMod = null; wstep = 0; renderWelcome(); window.scrollTo(0, 0);
     } else {
       show("v-home"); curMod = null; renderHome(); window.scrollTo(0, 0);
     }
