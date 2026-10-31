@@ -1,0 +1,1018 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Decathlon: kit de entrevista</title>
+<meta name="description" content="Guía interactiva para preparar una entrevista en Decathlon Colombia, áreas administrativa y de mercadeo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F1F4FA; --surface:#FFFFFF; --ink:#151A3D; --muted:#566086; --line:#D8DEEC;
+  --blue:#2B45CC; --blue-strong:#1E33A6; --blue-soft:#E5E9FB; --on-blue:#FFFFFF;
+  --amber:#8F5600; --amber-soft:#FFF0CF;
+  --green:#0D7449; --green-soft:#DCF2E7;
+  --violet:#5E3AB8; --violet-soft:#EEE7FB;
+  --gray:#454E70; --gray-soft:#E8EBF2;
+  --red:#B42318; --red-soft:#FDE7E5;
+  --lane:#CDD6F2;
+  --font-body:'Barlow', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-head:'Barlow Condensed', 'Arial Narrow', system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D1130; --surface:#151A3F; --ink:#E8EBF8; --muted:#A4ABCB; --line:#2A3166;
+    --blue:#8C9CFF; --blue-strong:#B4BEFF; --blue-soft:#232A68; --on-blue:#0D1130;
+    --amber:#FFC75A; --amber-soft:#3A2E10;
+    --green:#5ED7A2; --green-soft:#103A2B;
+    --violet:#BCA3FF; --violet-soft:#2B2258;
+    --gray:#C3C8E0; --gray-soft:#242A55;
+    --red:#FF9A8F; --red-soft:#46201F;
+    --lane:#2D3680;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D1130; --surface:#151A3F; --ink:#E8EBF8; --muted:#A4ABCB; --line:#2A3166;
+  --blue:#8C9CFF; --blue-strong:#B4BEFF; --blue-soft:#232A68; --on-blue:#0D1130;
+  --amber:#FFC75A; --amber-soft:#3A2E10;
+  --green:#5ED7A2; --green-soft:#103A2B;
+  --violet:#BCA3FF; --violet-soft:#2B2258;
+  --gray:#C3C8E0; --gray-soft:#242A55;
+  --red:#FF9A8F; --red-soft:#46201F;
+  --lane:#2D3680;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 var(--font-body);-webkit-text-size-adjust:100%;overflow-x:hidden}
+a{color:var(--blue);text-underline-offset:3px}
+a:hover{color:var(--blue-strong)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:4px}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+h1,h2,h3{font-family:var(--font-head);letter-spacing:.005em;margin:0}
+h2{font-weight:700;font-size:clamp(32px,7vw,42px);line-height:1.02}
+h3{font-weight:600;font-size:23px;line-height:1.15}
+p{margin:0 0 12px}
+ul,ol{margin:0;padding-left:20px}
+li{margin:4px 0}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+
+/* ---------- Header + progress lane ---------- */
+.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-row{display:flex;align-items:center;gap:12px;padding:10px 0 6px}
+.top-title{font:700 19px/1 var(--font-head);white-space:nowrap}
+.lane{position:relative;flex:1;height:14px;border-radius:999px;background:var(--lane);overflow:visible}
+.lane::after{content:"";position:absolute;left:8px;right:8px;top:50%;border-top:2px dashed color-mix(in srgb,var(--surface) 75%,transparent)}
+.lane-fill{position:absolute;inset:0 auto 0 0;width:calc(11px + (100% - 22px) * var(--pv,0));border-radius:999px;background:var(--blue);transition:width .5s ease}
+.runner{position:absolute;top:50%;left:calc(11px + (100% - 22px) * var(--pv,0));width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:var(--surface);border:3px solid var(--blue);transition:left .5s ease;z-index:2}
+.pct{font:700 19px/1 var(--font-head);min-width:44px;text-align:right}
+.nav{display:flex;gap:6px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{flex:none;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:15px;font-weight:500}
+.nav a.seen{border-color:var(--blue);color:var(--blue)}
+.nav a.seen::before{content:"✓ ";font-weight:600}
+
+/* ---------- Hero: running track ---------- */
+.hero{margin:18px 0 6px;border-radius:20px;overflow:hidden;color:#fff;
+  background:
+    repeating-linear-gradient(180deg, transparent 0 46px, rgba(255,255,255,.13) 46px 48px),
+    linear-gradient(160deg,#2B45CC 0%,#1D2E92 100%);
+  position:relative}
+.hero-in{position:relative;padding:28px 58px 22px 20px}
+.hero h1{font-weight:700;font-size:clamp(46px,12vw,78px);line-height:.92;max-width:11ch}
+.hero p{max-width:46ch;color:rgba(255,255,255,.92);margin:14px 0 18px;font-size:18px}
+.finish{position:absolute;top:0;bottom:0;right:22px;width:18px;
+  background:conic-gradient(#fff 25%,transparent 0 50%,#fff 0 75%,transparent 0) 0 0/18px 18px;opacity:.85}
+.route{background:rgba(14,22,92,.62);border:1px solid rgba(255,255,255,.28);border-radius:14px;padding:14px 16px}
+.route b{font-family:var(--font-head);font-size:20px;font-weight:600;display:block;margin-bottom:4px}
+.route ol{padding-left:22px}
+.route a{color:#fff}
+.legal{font-size:13.5px;color:var(--muted);margin:10px 2px 0}
+
+/* ---------- Sections ---------- */
+section{padding:44px 0 6px;scroll-margin-top:104px}
+.lead{color:var(--muted);margin:8px 0 18px;max-width:62ch}
+.block{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0}
+.block h3{margin-bottom:8px}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:6px 0 14px}
+.fact{background:var(--surface);padding:14px 14px 12px}
+.fact b{display:block;font:700 31px/1 var(--font-head);margin-bottom:5px;color:var(--ink)}
+.fact span{display:block;color:var(--muted);font-size:14.5px;line-height:1.35}
+@media (min-width:640px){.facts{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.say{border-left:5px solid var(--blue);background:var(--blue-soft);padding:12px 14px;border-radius:0 12px 12px 0;margin:14px 0}
+.say b{display:block;font-family:var(--font-head);font-size:19px;font-weight:600;margin-bottom:2px}
+.new{border-left-color:var(--green);background:var(--green-soft)}
+.values{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}
+.value{border:1px solid var(--line);border-radius:12px;padding:12px}
+.value b{font:600 21px/1.1 var(--font-head);display:block}
+.value span{font-size:15px;color:var(--muted)}
+.brands{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:6px 0 4px}
+.brands dt{font-weight:600}
+.brands dd{margin:0;color:var(--muted)}
+.subhead{font:600 18px/1.2 var(--font-head);margin:14px 0 6px}
+.kv{margin:0}
+.kv dt{font:600 18px/1.2 var(--font-head);color:var(--muted);margin-top:12px}
+.kv dd{margin:2px 0 0}
+
+/* ---------- Video ---------- */
+.video{margin-top:14px;border-top:1px dashed var(--line);padding-top:12px}
+.vbtn{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:var(--gray-soft);color:var(--ink);border:0;border-radius:12px;padding:10px 12px;font:500 16px/1.3 var(--font-body);cursor:pointer}
+.vbtn:hover{background:color-mix(in srgb,var(--gray-soft) 70%,var(--blue-soft))}
+.vbtn .play{flex:none;width:34px;height:34px;border-radius:50%;background:var(--blue);display:grid;place-items:center}
+.vbtn .play::after{content:"";border-left:11px solid var(--on-blue);border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px}
+.vbtn small{display:block;color:var(--muted);font-size:13.5px}
+.frame{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vlinks{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:8px;font-size:14.5px}
+
+/* ---------- Tools ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 6px}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;font:500 15px/1 var(--font-body);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.legend{display:grid;gap:6px;margin:12px 0 4px;font-size:14.5px}
+.legend div{display:flex;gap:8px;align-items:baseline}
+.badge{display:inline-block;white-space:nowrap;font-size:13px;font-weight:600;line-height:1;padding:5px 9px;border-radius:999px}
+.st-conf-co{background:var(--green-soft);color:var(--green)}
+.st-conf-g{background:var(--blue-soft);color:var(--blue)}
+.st-prob{background:var(--amber-soft);color:var(--amber)}
+.st-ley{background:var(--violet-soft);color:var(--violet)}
+.st-concept{background:var(--gray-soft);color:var(--gray)}
+.tool{background:var(--surface);border:1px solid var(--line);border-radius:16px;margin:12px 0;overflow:hidden}
+.tool>summary{list-style:none;cursor:pointer;padding:16px 16px 14px;display:grid;grid-template-columns:1fr auto;gap:6px 10px;align-items:start}
+.tool>summary::-webkit-details-marker{display:none}
+.tool>summary h3{font-size:22px}
+.tool>summary .meta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:14px;color:var(--muted)}
+.tool>summary .tog{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-weight:600;color:var(--muted);transition:transform .2s}
+.tool[open]>summary .tog{transform:rotate(45deg)}
+.tool .body{padding:0 16px 16px;border-top:1px solid var(--line)}
+.vocab{list-style:none;padding:0;margin:6px 0 0;display:grid;gap:8px}
+.vocab li{margin:0;padding:8px 10px;border-radius:10px;background:var(--gray-soft);font-size:15.5px;line-height:1.4}
+.vocab b{font-weight:600}
+blockquote.frase{margin:14px 0 0;padding:12px 14px;border-radius:12px;background:var(--blue-soft);font-style:italic}
+blockquote.frase b{display:block;font:600 17px/1.2 var(--font-head);font-style:normal;color:var(--blue);margin-bottom:4px}
+.hidden{display:none!important}
+.study{margin-top:14px;padding:12px 14px;border-radius:12px;border:1px solid var(--line)}
+.study b{display:block;font:600 17px/1.2 var(--font-head);margin-bottom:4px}
+.study ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.study li{margin:0;font-size:15.5px;line-height:1.4}
+.study li span{display:block;color:var(--muted);font-size:14px}
+.plat{display:grid;gap:12px}
+@media (min-width:640px){.plat{grid-template-columns:1fr 1fr}}
+.plat .block{margin:0}
+.plat ul{list-style:none;padding:0;display:grid;gap:10px}
+.plat li{margin:0}
+.plat li span{display:block;color:var(--muted);font-size:14.5px}
+
+/* ---------- Interview ---------- */
+.qa{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin:10px 0}
+.qa>summary{cursor:pointer;padding:14px 16px;font-weight:600;list-style:none;display:flex;gap:10px;justify-content:space-between;align-items:flex-start}
+.qa>summary::-webkit-details-marker{display:none}
+.qa>summary .area{flex:none;font-size:12.5px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 8px;margin-top:2px}
+.qa .body{padding:0 16px 14px}
+.qa .ej{margin-top:10px;padding:10px 12px;border-radius:10px;background:var(--gray-soft);font-size:15.5px}
+.qa .note{margin-top:8px;font-size:15px;color:var(--amber)}
+.star{display:grid;gap:10px;margin-top:8px}
+.star label{font:600 18px/1.2 var(--font-head)}
+.star label span{font:400 14px/1.3 var(--font-body);color:var(--muted);display:block}
+.star textarea{width:100%;min-height:66px;resize:vertical;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--bg);color:var(--ink);font:400 16px/1.45 var(--font-body)}
+.two{display:grid;gap:14px}
+@media (min-width:640px){.two{grid-template-columns:1fr 1fr}}
+.bad li::marker{content:"✕  ";color:var(--red);font-weight:600}
+.good li::marker{content:"?  ";color:var(--blue);font-weight:700}
+
+/* ---------- KPIs ---------- */
+.kpis{display:grid;gap:12px}
+@media (min-width:640px){.kpis{grid-template-columns:1fr 1fr}}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}
+.kpi .f{font-size:14.5px;color:var(--muted);margin:2px 0 10px}
+.kpi .in{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.kpi label{font-size:13.5px;color:var(--muted);display:block}
+.kpi input{width:100%;margin-top:3px;border:1px solid var(--line);border-radius:10px;padding:9px 10px;background:var(--bg);color:var(--ink);font:500 16px/1.2 var(--font-body)}
+.kpi output{display:block;font:700 34px/1 var(--font-head);margin:12px 0 8px}
+.kpi .tip{font-size:15px;border-top:1px dashed var(--line);padding-top:8px}
+.gloss{display:grid;gap:8px;margin-top:6px}
+.gloss div{padding:10px 12px;border-radius:10px;background:var(--gray-soft);font-size:15.5px}
+
+/* ---------- Quiz ---------- */
+.quiz{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
+.qhead{display:flex;justify-content:space-between;gap:10px;font-size:14.5px;color:var(--muted);margin-bottom:8px}
+.qbar{height:6px;border-radius:999px;background:var(--lane);overflow:hidden;margin-bottom:14px}
+.qbar i{display:block;height:100%;background:var(--blue);width:0;transition:width .3s}
+.quiz h3{font-family:var(--font-body);font-weight:600;font-size:19px;line-height:1.35;margin-bottom:12px}
+.opts{display:grid;gap:8px}
+.opt{text-align:left;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:12px;padding:12px 14px;font:500 16px/1.35 var(--font-body);cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--blue)}
+.opt.ok{border-color:var(--green);background:var(--green-soft);color:var(--ink)}
+.opt.ko{border-color:var(--red);background:var(--red-soft);color:var(--ink)}
+.opt:disabled{cursor:default}
+.why{margin-top:12px;padding:12px 14px;border-radius:12px;background:var(--gray-soft);font-size:15.5px}
+.btn{display:inline-block;margin-top:14px;border:0;border-radius:12px;padding:12px 18px;background:var(--blue);color:var(--on-blue);font:600 16px/1 var(--font-body);cursor:pointer}
+.btn.ghost{background:transparent;color:var(--blue);border:1px solid var(--blue)}
+.score{font:700 64px/1 var(--font-head);margin:6px 0}
+
+/* ---------- Checklist ---------- */
+.checks{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.checks li{margin:0}
+.checks label{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer}
+.checks input{width:22px;height:22px;flex:none;margin:1px 0 0;accent-color:var(--blue)}
+.checks input:checked+span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--blue)}
+
+/* ---------- Sources ---------- */
+.sources{font-size:14.5px;padding-left:22px}
+.sources li{margin:6px 0}
+footer{padding:36px 0 60px;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="top-row">
+      <span class="top-title">Kit Decathlon</span>
+      <div class="lane" id="lane" role="progressbar" aria-label="Avance de la preparación" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="lane-fill"></div><div class="runner"></div>
+      </div>
+      <span class="pct" id="pct">0%</span>
+    </div>
+    <nav class="nav" id="nav" aria-label="Secciones">
+      <a href="#empresa" data-s="empresa">Empresa</a>
+      <a href="#colombia" data-s="colombia">Colombia</a>
+      <a href="#entrevista" data-s="entrevista">Entrevista</a>
+      <a href="#herramientas" data-s="herramientas">Herramientas</a>
+      <a href="#kpis" data-s="kpis">KPIs</a>
+      <a href="#estudiar" data-s="estudiar">Estudiar</a>
+      <a href="#quiz" data-s="quiz">Quiz</a>
+      <a href="#checklist" data-s="checklist">Checklist</a>
+      <a href="#fuentes">Fuentes</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <div class="finish" aria-hidden="true"></div>
+    <div class="hero-in">
+      <h1>Llega sabiendo de qué te hablan</h1>
+      <p>La empresa, su momento en Colombia, las herramientas que probablemente usan y cómo hablar de cada una en una entrevista de administración o mercadeo. Lee el resumen; si quieres más profundidad, abre el video.</p>
+      <div class="route">
+        <b>Ruta sugerida, unos 45 minutos</b>
+        <ol>
+          <li><a href="#empresa">La empresa</a> y <a href="#colombia">Colombia</a>: 10 min</li>
+          <li><a href="#entrevista">Cómo es la entrevista</a>: 10 min</li>
+          <li><a href="#herramientas">Herramientas de tu área</a>: 15 min</li>
+          <li><a href="#kpis">KPIs</a> y <a href="#quiz">quiz</a>: 10 min</li>
+          <li>Si te quedan días: <a href="#estudiar">dónde seguir estudiando</a></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <p class="legal">Guía de estudio no oficial, hecha con fuentes públicas a octubre de 2026. Tu avance se guarda solo en este navegador.</p>
+
+  <!-- ================= EMPRESA ================= -->
+  <section id="empresa" data-track>
+    <h2>Decathlon en 5 minutos</h2>
+    <p class="lead">Cifras del grupo a cierre de 2025. No hace falta memorizarlas todas: con tres bien dichas basta.</p>
+
+    <div class="facts">
+      <div class="fact"><b>20.700 M€</b><span>Volumen de ventas (GMV), +7,1%</span></div>
+      <div class="fact"><b>16.800 M€</b><span>Ventas netas, +4%</span></div>
+      <div class="fact"><b>910 M€</b><span>Resultado neto, +16%</span></div>
+      <div class="fact"><b>1.902</b><span>Tiendas en 82 países y regiones</span></div>
+      <div class="fact"><b>102.900</b><span>Colaboradores; el 51% es accionista</span></div>
+      <div class="fact"><b>20,2%</b><span>De las ventas son digitales</span></div>
+      <div class="fact"><b>53,9%</b><span>De las ventas tienen ecodiseño</span></div>
+      <div class="fact"><b>1.746</b><span>Talleres de reparación</span></div>
+    </div>
+
+    <div class="block">
+      <h3>Qué es</h3>
+      <p>Una marca deportiva multiespecialista que <strong>diseña, produce y vende</strong> sus propios productos. Ese modelo integrado es lo que le permite ofrecer la mejor relación calidad-precio a gran escala: no es solo una tienda, es fabricante y retailer a la vez.</p>
+      <p>Fundada en 1976 en el norte de Francia por Michel Leclercq; en 2026 cumple 50 años. Sede en Villeneuve-d'Ascq. CEO global: Javier López, desde 2025. Presidente del consejo: Julien Leclercq.</p>
+    </div>
+
+    <div class="block">
+      <h3>Hacia dónde va (estrategia desde 2024)</h3>
+      <dl class="kv">
+        <dt>Propósito</dt>
+        <dd><em>Move People Through the Wonders of Sport</em>: mover a las personas a través de las maravillas del deporte. Físicamente, emocionalmente y hacia hábitos más sostenibles.</dd>
+        <dt>Posicionamiento y campaña</dt>
+        <dd><em>Make sport yours</em> y la campaña <em>Ready to Play?</em>: el deporte como juego y disfrute, no como perfección. Nuevo logo, llamado <em>the Orbit</em>.</dd>
+        <dt>Meta 2030</dt>
+        <dd>Impactar positivamente a mil millones de personas cuidando el planeta, al que llaman su terreno de juego compartido.</dd>
+        <dt>Circularidad</dt>
+        <dd>Segunda mano en 43 mercados (1,58 millones de productos vendidos en 2025), reparación en casi todas las tiendas y Decathlon Pulse, su brazo de inversión en movilidad y economía circular.</dd>
+        <dt>Transformación interna</dt>
+        <dd>Migración de su ERP a SAP S/4HANA con horizonte 2028 e integración de IA en procesos. Útil si te preguntan por tecnología.</dd>
+      </dl>
+      <div id="v-brand"></div>
+    </div>
+
+    <div class="block">
+      <h3>Sus cuatro valores</h3>
+      <p class="muted small">Los valores son oficiales. Lo de "cómo mostrarlo" es una sugerencia para la entrevista.</p>
+      <div class="values">
+        <div class="value"><b>Vitalidad</b><span>Energía e iniciativa. Muéstralo con algo que propusiste o arrancaste.</span></div>
+        <div class="value"><b>Generosidad</b><span>Compartir y ayudar al equipo. Un ejemplo de cuando enseñaste o apoyaste.</span></div>
+        <div class="value"><b>Responsabilidad</b><span>Hacerte cargo con autonomía. Un resultado que dependía de ti.</span></div>
+        <div class="value"><b>Autenticidad</b><span>Ser tú. No exageres tu deporte ni tus herramientas.</span></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3>Sus marcas</h3>
+      <p>En 2024 pasaron de decenas de marcas a una cartera simple, con "Decathlon" por delante.</p>
+      <p class="subhead">9 especialistas</p>
+      <dl class="brands">
+        <dt>Quechua</dt><dd>Montaña</dd>
+        <dt>Tribord</dt><dd>Agua y viento</dd>
+        <dt>Rockrider</dt><dd>Ciclismo outdoor</dd>
+        <dt>Domyos</dt><dd>Fitness</dd>
+        <dt>Kuikma</dt><dd>Raqueta (incluye pádel)</dd>
+        <dt>Kipsta</dt><dd>Deportes de equipo</dd>
+        <dt>Caperlan</dt><dd>Naturaleza y pesca</dd>
+        <dt>Btwin</dt><dd>Movilidad urbana</dd>
+        <dt>Inesis</dt><dd>Precisión (golf, tiro con arco)</dd>
+      </dl>
+      <p class="subhead">4 expertas</p>
+      <dl class="brands">
+        <dt>Kiprun</dt><dd>Running</dd>
+        <dt>Van Rysel</dt><dd>Ciclismo de ruta</dd>
+        <dt>Simond</dt><dd>Escalada y alpinismo</dd>
+        <dt>Solognac</dt><dd>Caza y naturaleza</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ================= COLOMBIA ================= -->
+  <section id="colombia" data-track>
+    <h2>Decathlon en Colombia</h2>
+    <p class="lead">Aquí está lo que más te sirve: el país está en plena expansión y eso define los retos de cualquier cargo.</p>
+
+    <div class="facts">
+      <div class="fact"><b>2017</b><span>Llegada; primera tienda en La Colina, Bogotá</span></div>
+      <div class="fact"><b>22</b><span>Tiendas a octubre de 2026, 10 en Bogotá</span></div>
+      <div class="fact"><b>30–35</b><span>Meta de tiendas a 2030</span></div>
+      <div class="fact"><b>10%</b><span>Meta de participación del mercado deportivo a 2030</span></div>
+      <div class="fact"><b>US$115 M</b><span>Ventas en 2025</span></div>
+      <div class="fact"><b>~800</b><span>Colaboradores; más de 1.000 entre 2026 y 2027</span></div>
+      <div class="fact"><b>2,5 M</b><span>Clientes en el país</span></div>
+      <div class="fact"><b>40–50%</b><span>De las ventas salen de Bogotá</span></div>
+    </div>
+
+    <div class="say new">
+      <b>Lo más reciente: Decathlon Club (septiembre de 2026)</b>
+      Programa de membresía gratuito con la campaña "Moverse es fácil". Da puntos por comprar, por hacer deporte (la app se conecta con Strava, Garmin, Fitbit y otras, y premia dos horas semanales de actividad), por reparar, por comprar reacondicionado y por calificar productos. Meta: crecer la base activa entre 20% y 25% en 2027. Si es mercadeo, menciónalo sí o sí; está explicado en <a href="#t-club">Herramientas</a>.
+    </div>
+
+    <div class="block">
+      <h3>Lo que conviene saber</h3>
+      <dl class="kv">
+        <dt>Liderazgo</dt>
+        <dd>Carlos Gómez es el CEO de Decathlon Colombia. Empezó como asesor en Decathlon hace unos 25 años: la carrera interna existe y les gusta contarlo.</dd>
+        <dt>Deportes</dt>
+        <dd>Los fuertes son running, fitness, natación, montaña y ciclismo. Pádel y voleibol son los que más crecen, y el pádel es prioridad.</dd>
+        <dt>Formatos</dt>
+        <dd>Tiendas de distinto tamaño según la ciudad, una isla comercial en Ibagué y tiendas pequeñas conectadas al catálogo completo por el canal digital.</dd>
+        <dt>Precio y producto</dt>
+        <dd>Hicieron una rebaja general de precios desde septiembre de 2024 y empezaron producción local con una planta aliada en Funza. Venden cerca de 7 millones de unidades al año.</dd>
+        <dt>Personas</dt>
+        <dd>Fueron el primer retailer del país en pasar a jornada de 40 horas. Sus vacantes piden pasión por algún deporte y su gestión está orientada a la autonomía del equipo.</dd>
+        <dt>Digital</dt>
+        <dd>App propia con productos reacondicionados y la meta de llegar al 10% del segmento digital en 2030. En 2027 cumplen 10 años en Colombia.</dd>
+      </dl>
+    </div>
+
+    <div class="say">
+      <b>Úsalo en la entrevista</b>
+      Colombia está en modo crecimiento: de 22 a 30–35 tiendas, meta del 10% del mercado y un programa de fidelización recién lanzado. Un cargo administrativo va a necesitar procesos y control de costos que escalen tienda por tienda; uno de mercadeo, convertir clientes en miembros activos del Club. Conecta tus respuestas con eso.
+    </div>
+  </section>
+
+  <!-- ================= ENTREVISTA ================= -->
+  <section id="entrevista" data-track>
+    <h2>Cómo es la entrevista</h2>
+    <p class="lead">Según reseñas de candidatos en varios países: entrevista por competencias, a veces en varias fases (selección y luego el líder del área), con un tono cercano. Casi siempre preguntan por tu deporte.</p>
+
+    <div class="block">
+      <h3>El método STAR, en 30 segundos</h3>
+      <p>Para cualquier pregunta tipo "cuéntame de una vez que…", responde en cuatro partes: <strong>Situación</strong> (el contexto), <strong>Tarea</strong> (qué te tocaba), <strong>Acción</strong> (qué hiciste tú) y <strong>Resultado</strong> (qué pasó, con número si puedes). Escribe aquí tu historia principal; se guarda en este navegador.</p>
+      <div class="star">
+        <label>Situación<span>¿Dónde y cuándo? Dos frases.</span><textarea data-star="s"></textarea></label>
+        <label>Tarea<span>¿Cuál era el reto o tu responsabilidad?</span><textarea data-star="t"></textarea></label>
+        <label>Acción<span>¿Qué hiciste tú, paso a paso?</span><textarea data-star="a"></textarea></label>
+        <label>Resultado<span>¿Qué cambió? Ideal con un número.</span><textarea data-star="r"></textarea></label>
+      </div>
+      <div id="v-star"></div>
+    </div>
+
+    <h3 style="margin-top:24px">Preguntas probables</h3>
+    <p class="muted small" style="margin-top:4px">Toca cada una para ver cómo armar la respuesta.</p>
+    <div id="qlist"></div>
+
+    <div class="two" style="margin-top:14px">
+      <div class="block" style="margin:0">
+        <h3>Para preguntar al final</h3>
+        <ul class="good">
+          <li>¿Cómo se mide el éxito en este cargo a los seis meses?</li>
+          <li>¿Qué herramientas usa el equipo en el día a día?</li>
+          <li>¿Cómo se coordina el área con las tiendas y el e-commerce?</li>
+          <li>¿Qué retos les trae pasar de 22 a 30–35 tiendas?</li>
+          <li>¿Cómo es la formación al entrar?</li>
+        </ul>
+      </div>
+      <div class="block" style="margin:0">
+        <h3>Errores a evitar</h3>
+        <ul class="bad">
+          <li>Decir que no practicas ningún deporte.</li>
+          <li>Afirmar que dominas una herramienta que no has usado. Mejor: "no la he usado, pero sé para qué sirve".</li>
+          <li>Llegar sin haber visitado una tienda ni abierto la app.</li>
+          <li>Hablar mal de empleos anteriores.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HERRAMIENTAS ================= -->
+  <section id="herramientas" data-track>
+    <h2>Herramientas y conceptos</h2>
+    <p class="lead">Cada tarjeta tiene lo esencial en texto y, al final, un video opcional. Filtra por tu área.</p>
+
+    <div class="filters" role="group" aria-label="Filtrar por área">
+      <button class="chip" data-f="all" aria-pressed="true">Todas</button>
+      <button class="chip" data-f="admin" aria-pressed="false">Administrativa</button>
+      <button class="chip" data-f="mkt" aria-pressed="false">Mercadeo</button>
+    </div>
+
+    <div class="legend" aria-label="Qué significa cada etiqueta">
+      <div><span class="badge st-conf-co">Confirmado en Colombia</span><span class="muted">Aparece en vacantes o anuncios de Decathlon Colombia.</span></div>
+      <div><span class="badge st-conf-g">Confirmado en el grupo</span><span class="muted">Lo usa Decathlon en otros países; puede estar o llegar aquí.</span></div>
+      <div><span class="badge st-prob">Probable</span><span class="muted">Estándar del mercado y coherente con su ecosistema; no confirmado.</span></div>
+      <div><span class="badge st-ley">Obligatorio en Colombia</span><span class="muted">Lo exige la ley a todas las empresas.</span></div>
+      <div><span class="badge st-concept">Concepto clave</span><span class="muted">No es una herramienta, pero te lo van a mencionar.</span></div>
+    </div>
+
+    <div id="tools"></div>
+  </section>
+
+  <!-- ================= KPIs ================= -->
+  <section id="kpis" data-track>
+    <h2>KPIs para hablar con números</h2>
+    <p class="lead">Cambia los valores y mira el resultado. Debajo de cada uno, una frase para usar en la entrevista.</p>
+    <div class="kpis" id="kpilist"></div>
+
+    <div class="block">
+      <h3>Glosario rápido</h3>
+      <div class="gloss">
+        <div><b>GMV vs. ventas netas.</b> El GMV es el valor total vendido por todos sus canales, incluido por ejemplo lo que terceros venden en su marketplace. Las ventas netas son lo que Decathlon registra como ingreso propio. Por eso en 2025 reportó 20.700 M€ de GMV y 16.800 M€ de ventas netas.</div>
+        <div><b>EBITDA.</b> Ganancia antes de intereses, impuestos, depreciaciones y amortizaciones: mide la rentabilidad de la operación. Decathlon: 1.800 M€ en 2025, +21%.</div>
+        <div><b>UPT.</b> Unidades por ticket: cuántos productos lleva cada cliente. Sube con venta cruzada (tenis + medias + botella).</div>
+        <div><b>Quiebre de stock.</b> Cuando un producto se agota y se pierde la venta. La otra cara de una rotación demasiado alta.</div>
+        <div><b>Centro de costo.</b> Unidad a la que se le asignan gastos (una tienda, un área) para controlar su presupuesto.</div>
+        <div><b>CAC y CLV.</b> Lo que cuesta conseguir un cliente y lo que deja durante toda la relación. Si el CLV es mucho mayor que el CAC, la adquisición vale la pena.</div>
+      </div>
+      <p class="small" style="margin:12px 0 0">Para profundizar: <a href="https://www.cegid.com/ib/es/blog/kpis-retail-relevantes/" target="_blank" rel="noopener">los KPIs del retail más relevantes (Cegid)</a>.</p>
+    </div>
+  </section>
+
+  <!-- ================= ESTUDIAR ================= -->
+  <section id="estudiar" data-track>
+    <h2>Dónde seguir estudiando</h2>
+    <p class="lead">Todo es gratis o tiene una versión gratis. Cada tarjeta de herramientas trae además sus propios enlaces.</p>
+
+    <div class="block">
+      <h3>Si tienes tres días</h3>
+      <ol>
+        <li><strong>Día 1:</strong> tablas dinámicas en Sheets o Excel. Mira el video de la tarjeta y practica con datos inventados de ventas por tienda y deporte.</li>
+        <li><strong>Día 2, mercadeo:</strong> curso de Google Analytics en Skillshop y el módulo de Marketing Cloud en Trailhead. <strong>Administrativa:</strong> el curso de SAP y la guía de facturación de la DIAN.</li>
+        <li><strong>Día 3:</strong> Ley 1581 de datos personales (mercadeo) o control interno (administrativa). Cierra con el quiz y practicando las respuestas en voz alta.</li>
+      </ol>
+    </div>
+
+    <div class="say">
+      <b>Cómo usarlo en la entrevista</b>
+      Un curso corto terminado es algo concreto que decir: "no la he usado en un trabajo, pero ya hice el curso de X y entiendo cómo funciona". Mejor eso que decir que la dominas.
+    </div>
+
+    <div class="plat">
+      <div class="block">
+        <h3>Para cualquier área</h3>
+        <ul>
+          <li><a href="https://oferta.senasofiaplus.edu.co" target="_blank" rel="noopener">SENA Sofía Plus</a><span>Cursos virtuales gratis con certificado: Excel, mercadeo, inglés y más. La oferta cambia cada mes.</span></li>
+          <li><a href="https://www.coursera.org/specializations/getting-started-with-google-workspace-es" target="_blank" rel="noopener">Google Workspace en español (Coursera)</a><span>De Google Cloud. Se puede ver gratis como oyente.</span></li>
+          <li><a href="https://support.office.com/es-es/article/Centro-de-aprendizaje-de-Office-b8f02f81-ec85-4493-a39b-4c48e6bc4bfb" target="_blank" rel="noopener">Centro de aprendizaje de Office (Microsoft)</a><span>Videos oficiales de Excel.</span></li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>Mercadeo</h3>
+        <ul>
+          <li><a href="https://skillshop.exceedlms.com/" target="_blank" rel="noopener">Skillshop de Google</a><span>Cursos y certificaciones sin costo de Google Analytics y Google Ads.</span></li>
+          <li><a href="https://trailhead.salesforce.com/es/content/learn/modules/mrkt_cloud_basics" target="_blank" rel="noopener">Trailhead: Marketing Cloud</a><span>Módulo oficial de Salesforce, gratis y en español.</span></li>
+          <li><a href="https://www.facebookblueprint.com/student/catalog" target="_blank" rel="noopener">Meta Blueprint</a><span>Cursos gratis de publicidad en Instagram y Facebook.</span></li>
+          <li><a href="https://campusvirtual.sic.gov.co/aulavirtual/login/index.php" target="_blank" rel="noopener">Campus virtual de la SIC</a><span>Cursos gratis, entre ellos de datos personales.</span></li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>Administrativa</h3>
+        <ul>
+          <li><a href="https://learning.sap.com/courses/executing-basic-erp-processes-with-sap-s-4hana" target="_blank" rel="noopener">SAP Learning: procesos básicos de ERP en S/4HANA</a><span>Plataforma oficial de SAP, en inglés.</span></li>
+          <li><a href="https://www.dian.gov.co/fizcalizacioncontrol/herramienconsulta/FacturaElectronica/Facturaci%C3%B3n_Gratuita_DIAN/Paginas/Facturacion-Gratuita-DIAN.aspx" target="_blank" rel="noopener">Facturación gratuita DIAN</a><span>Página oficial con guías del sistema.</span></li>
+          <li><a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981" target="_blank" rel="noopener">Ley 1581 de 2012</a><span>Texto oficial de la ley de datos personales.</span></li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>Inglés para la entrevista</h3>
+        <ul>
+          <li><a href="https://oferta.senasofiaplus.edu.co" target="_blank" rel="noopener">SENA Sofía Plus</a><span>Busca "inglés": cursos virtuales gratis por niveles.</span></li>
+          <li><a href="https://www.comunidad.madrid/sites/default/files/recursos_para_superar_entrevistas_en_ingles.pdf" target="_blank" rel="noopener">Recursos para entrevistas en inglés (PDF)</a><span>Guía pública de la Comunidad de Madrid con frases y preguntas típicas.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= QUIZ ================= -->
+  <section id="quiz" data-track>
+    <h2>Quiz de repaso</h2>
+    <p class="lead">16 preguntas. Cada respuesta trae la explicación. Tu mejor puntaje cuenta para el avance.</p>
+    <div class="quiz" id="quizbox" aria-live="polite"></div>
+  </section>
+
+  <!-- ================= CHECKLIST ================= -->
+  <section id="checklist" data-track>
+    <h2>Checklist del día antes</h2>
+    <p class="lead">Marca lo que ya tienes listo. Es la parte que más pesa en la barra de avance.</p>
+    <ul class="checks" id="checks"></ul>
+  </section>
+
+  <!-- ================= FUENTES ================= -->
+  <section id="fuentes">
+    <h2>Fuentes</h2>
+    <p class="lead">Para verificar cualquier dato o profundizar.</p>
+    <ol class="sources">
+      <li><a href="https://www.decathlon-united.media/shared/pressfiles/modules/fichiers/decathlon-group_global-annual-results-2025_press-release.pdf" target="_blank" rel="noopener">Resultados del Grupo Decathlon 2025 (nota de prensa)</a></li>
+      <li><a href="https://saladeprensa.decathlon.es/wp-content/uploads/2024/03/ES-2024.03.12-_Press-Release_Building-Decathlons-Next-Frontier_VF.pdf" target="_blank" rel="noopener">Nuevo propósito, identidad y marcas (2024)</a></li>
+      <li><a href="https://www.decathlon-united.media/decathlon-new-identity" target="_blank" rel="noopener">Propósito, posicionamiento y valores</a></li>
+      <li><a href="https://sgbonline.com/exec-decathlons-2025-profits-climb-16-percent-on-4-percent-revenue-gain/" target="_blank" rel="noopener">Javier López, nuevo CEO global (SGB)</a></li>
+      <li><a href="https://www.valoraanalitik.com/decathlon-acelera-su-expansion-en-colombia-busca-llegar-a-35-tiendas-y-quedarse-con-el-10-del-mercado-deportivo/" target="_blank" rel="noopener">Expansión en Colombia, oct. 2026 (Valora Analitik)</a></li>
+      <li><a href="https://www.mixnewscolombia.com/2026/09/ahora-tiene-recompensa-decathlon-espera.html" target="_blank" rel="noopener">Lanzamiento de Decathlon Club, sept. 2026 (Mix News)</a></li>
+      <li><a href="https://lexpress-franchise.com/latam/ultimas-noticias/decathlon-acelera-colombia-aperturas-2026/" target="_blank" rel="noopener">Aperturas 2026 y categorías (L'Express Franchise)</a></li>
+      <li><a href="https://www.elcolombiano.com/negocios/decathlon-medellin-nueva-tienda-proyecciones-deporte-GK38542721" target="_blank" rel="noopener">Tienda 21 y colaboradores (El Colombiano)</a></li>
+      <li><a href="https://www.larepublica.co/decathlon" target="_blank" rel="noopener">Ventas 2025 y meta de tiendas (La República)</a></li>
+      <li><a href="https://www.larepublica.co/empresas/el-ceo-de-decathlon-carlos-gomez-hablo-de-la-expansion-de-la-empresa-en-colombia-4070873" target="_blank" rel="noopener">Entrevista a Carlos Gómez (La República)</a></li>
+      <li><a href="https://www.larepublica.co/empresas/entrevista-con-carlos-gomez-ceo-de-decathlon-en-colombia-sobre-los-planes-de-expasion-de-la-empresa-3819766" target="_blank" rel="noopener">Producción local en Funza (La República)</a></li>
+      <li><a href="https://www.pulzo.com/economia/decathlon-lanzo-descuento-por-ejercicio-francia-colombia-baja-precios-PP3964894" target="_blank" rel="noopener">Rebaja de precios en Colombia (Pulzo)</a></li>
+      <li><a href="https://www.lafm.com.co/empleo/decathlon-abrio-vacantes-de-empleo-para-temporada-de-fin-de-ano-con-pocos-requisitos-link" target="_blank" rel="noopener">Jornada de 40 horas (La FM)</a></li>
+      <li><a href="https://www.semana.com/economia/capsulas/articulo/decathlon-fortalece-su-operacion-en-colombia-y-apuesta-por-nuevas-ciudades/202624/" target="_blank" rel="noopener">Nueve años en Colombia (Semana)</a></li>
+      <li><a href="https://www.noticiasrcn.com/economia/buscando-empleo-reconocida-empresa-abrio-vacantes-451241" target="_blank" rel="noopener">Perfil que buscan (Noticias RCN)</a></li>
+      <li><a href="https://www.portafolio.co/economia/empleo/decathlon-abre-mas-de-60-vacantes-de-empleo-a-nivel-nacional-616892" target="_blank" rel="noopener">Requisito de practicar deporte (Portafolio)</a></li>
+      <li><a href="https://mx.indeed.com/cmp/Decathlon/interviews" target="_blank" rel="noopener">Reseñas de entrevistas (Indeed)</a> y <a href="https://www.glassdoor.com/Interview/Decathlon-Interview-E41180-RVW34583148.htm" target="_blank" rel="noopener">Glassdoor</a></li>
+      <li><a href="https://job-boards.eu.greenhouse.io/decathlontechnology/jobs/4811950101" target="_blank" rel="noopener">Vacante Google Admin, equipo Workspace</a></li>
+      <li><a href="https://job-boards.eu.greenhouse.io/decathlontechnologyen/jobs/4846449101" target="_blank" rel="noopener">Vacante SAP ECC y migración a S/4HANA 2028</a></li>
+      <li><a href="https://www.sap.com/asset/dynamic/2025/10/fe15b922-277f-0010-bca6-c68f7e60039b.html" target="_blank" rel="noopener">Caso SAP Analytics Cloud en Decathlon</a></li>
+      <li><a href="https://www.lemondeinformatique.fr/actualites/lireamp-decathlon-a-acheve-sa-migration-vers-le-cloud-87670.html" target="_blank" rel="noopener">Migración completa a la nube (Le Monde Informatique)</a></li>
+      <li><a href="https://jobs.decathlon.be/fr/vacants/crm-expert-decathlon-belgium-evere-rayvx804" target="_blank" rel="noopener">Vacante CRM con Salesforce Marketing Cloud (Decathlon Bélgica)</a></li>
+      <li><a href="https://jobverse.io/jobs/18620062/crm-specialist-customer-growth-at-decathlonb-brazil" target="_blank" rel="noopener">Vacante CRM con RFM (Decathlon Brasil)</a></li>
+      <li><a href="https://co.indeed.com/practicas-marketing-digital-jobs?fromage=3" target="_blank" rel="noopener">Vacante de diseño en mercadeo, Decathlon Colombia (Indeed)</a></li>
+      <li><a href="https://co.jooble.org/jdp/-7948017670631544962" target="_blank" rel="noopener">Vacante de localización y contenido, Decathlon Colombia</a></li>
+      <li><a href="https://americaretail-malls.com/paises/mexico/decathlon-impulsa-fidelizacion-con-millones-de-afiliados/" target="_blank" rel="noopener">Membresía en México: 1,36 M de miembros (América Retail)</a></li>
+      <li><a href="https://www.casestudies.com/company/lengow/case-study/how-decathlon-italy-reduced-its-cpc-by-49-with-google-lia-campaigns" target="_blank" rel="noopener">Caso Decathlon Italia con anuncios de inventario local</a></li>
+    </ol>
+  </section>
+
+  <footer>
+    Guía de estudio no oficial. Decathlon y sus marcas pertenecen a sus dueños. Los videos son de terceros en YouTube; si alguno no carga aquí, usa "Abrir en YouTube".
+  </footer>
+</main>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- Persistencia (solo en este navegador) ---------- */
+  var KEY = "dk-prep-v1";
+  var state = {seen:{}, checks:{}, quizBest:0, star:{}};
+  try {
+    var raw = localStorage.getItem(KEY);
+    if (raw) { var p = JSON.parse(raw); if (p && typeof p === "object") state = Object.assign(state, p); }
+  } catch(e) {}
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e) {} }
+
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+
+  /* ---------- Videos ---------- */
+  function videoBlock(v, extra){
+    if (!v) return "";
+    if (v.search){
+      var q = encodeURIComponent(v.search);
+      return '<div class="video"><div class="vlinks"><span class="muted">Sin video verificado para este tema.</span>'
+        + '<a href="https://www.youtube.com/results?search_query=' + q + '" target="_blank" rel="noopener">Buscar en YouTube</a></div></div>';
+    }
+    var html = '<div class="video"><div class="vslot" data-vid="' + esc(v.id) + '">'
+      + '<button class="vbtn" type="button" data-play="' + esc(v.id) + '"><span class="play" aria-hidden="true"></span>'
+      + '<span>Ver video: ' + esc(v.t) + '<small>Se abre aquí, opcional</small></span></button></div>'
+      + '<div class="vlinks"><a href="https://www.youtube.com/watch?v=' + esc(v.id) + '" target="_blank" rel="noopener">Abrir en YouTube</a>';
+    if (extra) html += '<a href="https://www.youtube.com/watch?v=' + esc(extra.id) + '" target="_blank" rel="noopener">Para profundizar: ' + esc(extra.t) + '</a>';
+    return html + '</div></div>';
+  }
+  document.addEventListener("click", function(e){
+    var b = e.target.closest("[data-play]");
+    if (!b) return;
+    var id = b.getAttribute("data-play");
+    var slot = b.parentNode;
+    slot.innerHTML = '<div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id)
+      + '?autoplay=1&rel=0" title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>';
+  });
+
+  document.getElementById("v-brand").innerHTML = videoBlock({id:"UcqSHkjfISM", t:"Campaña Ready to Play? de Decathlon"});
+  document.getElementById("v-star").innerHTML = videoBlock({id:"GzeM7Jl4j3o", t:"Método STAR con ejemplo de respuesta"});
+
+  /* ---------- STAR ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll("[data-star]"), function(t){
+    var k = t.getAttribute("data-star");
+    t.value = (state.star && state.star[k]) || "";
+    t.addEventListener("input", function(){ state.star[k] = t.value; save(); });
+  });
+
+  /* ---------- Preguntas de entrevista ---------- */
+  var QS = [
+    {q:"¿Qué deporte practicas y qué te ha enseñado?", a:"Todas",
+     how:["Di el deporte, con qué frecuencia y desde cuándo.","Saca un aprendizaje que sirva en el trabajo: constancia, trabajo en equipo, manejar la frustración.","Conéctalo con el cargo en una frase."],
+     ej:"“Salgo a trotar tres veces por semana desde hace dos años. Me enseñó a medir mi progreso y a ser constante, que es justo lo que pide un cargo de seguimiento como este.”",
+     note:"Practicar algún deporte es requisito en sus vacantes. Un deporte casual contado con honestidad funciona mejor que uno exagerado."},
+    {q:"¿Por qué Decathlon?", a:"Todas",
+     how:["Propósito: hacer el deporte accesible a todos.","Modelo: diseñan, producen y venden; por eso el precio es bajo.","Momento: Colombia pasa de 22 a 30–35 tiendas y acaba de lanzar Decathlon Club.","Cierra con lo que tú aportas a ese momento."],
+     ej:"“Me atrae que el modelo integrado permita precios accesibles y que Colombia esté en plena expansión. Abrir 8 a 13 tiendas más exige procesos sólidos, y ahí puedo aportar.”"},
+    {q:"Cuéntame de un problema que resolviste.", a:"Todas",
+     how:["Usa STAR: situación, tarea, acción, resultado.","Pon un número en el resultado si puedes.","Habla de lo que hiciste tú, en primera persona."],
+     ej:"Situación: el reporte mensual tardaba tres días. Tarea: reducirlo. Acción: armé una plantilla con tabla dinámica y fórmulas. Resultado: bajó a medio día y se redujeron los errores."},
+    {q:"Visitaste una tienda: ¿qué te gustó y qué mejorarías?", a:"Todas",
+     how:["Ve a una tienda antes y toma notas.","Dos cosas buenas, concretas.","Una mejora con propuesta y cómo la medirías."],
+     ej:"“Me gustó poder probar productos y la zona de taller. Mejoraría la invitación al Club en caja: si cada asesor invita a identificarse, sube el porcentaje de ventas con cliente identificado.”"},
+    {q:"¿Cómo controlarías los gastos o el presupuesto de un área o tienda?", a:"Administrativa",
+     how:["Presupuesto por centro de costo.","Seguimiento mensual de real contra presupuesto, con alerta por desviación.","Revisión con cada responsable y plan de acción."],
+     ej:"“Un tablero de real contra presupuesto por centro de costo, semáforo a partir de ±5% de desviación y una revisión mensual con cada líder.”"},
+    {q:"Encuentras una diferencia entre la factura de un proveedor y lo que llegó a bodega. ¿Qué haces?", a:"Administrativa",
+     how:["No pagas hasta aclarar.","Comparas orden de compra, entrada de mercancía y factura (cruce de 3 vías).","Pides al proveedor nota crédito o ajuste y dejas registro."],
+     ej:"“Retengo el pago de esa factura, comparo los tres documentos y, si falta mercancía, pido nota crédito al proveedor dejando trazabilidad del caso.”"},
+    {q:"¿Cómo lanzarías una campaña de pádel, un deporte que Decathlon quiere impulsar?", a:"Mercadeo",
+     how:["Objetivo medible: ventas de la categoría, nuevos miembros del Club.","Público: quienes ya juegan raqueta, clubes, ciudades con canchas.","Canales: redes, Google, CRM, tienda y comunidad (clases, torneos).","Una prueba pequeña antes de escalar."],
+     ej:"“Haría un piloto en Bogotá: clases gratis con clubes aliados, pauta para interesados en raqueta y un journey para quien compre su primera pala. Mediría ventas de la categoría, ROAS y nuevos miembros del Club.”"},
+    {q:"¿Cómo sabes si una campaña funcionó?", a:"Mercadeo",
+     how:["Define el objetivo antes de lanzar.","Compara contra una línea base o una ciudad de control.","Mira ventas totales, online y en tienda, no solo clics."],
+     ej:"“Comparo contra el mismo periodo sin campaña o contra una ciudad de control, y miro ventas incrementales, ROAS y clientes nuevos identificados.”"},
+    {q:"Dame un ejemplo en el que trabajaste con autonomía.", a:"Todas",
+     how:["Decathlon valora la responsabilidad y la autonomía.","Cuenta algo que propusiste sin que te lo pidieran.","Muestra cómo informaste y mediste."],
+     ej:"Usa STAR con una iniciativa propia: qué viste, qué propusiste, cómo lo hiciste y qué resultó."},
+    {q:"¿Dónde te ves en tres años?", a:"Todas",
+     how:["Creciendo dentro de la empresa.","Dato útil: el CEO de Decathlon Colombia empezó como asesor hace unos 25 años."],
+     ej:"“Me veo liderando procesos dentro del área. Me motiva que aquí la carrera interna sea real.”"},
+    {q:"¿Qué sabes de su estrategia de sostenibilidad?", a:"Todas",
+     how:["Ecodiseño: 53,9% de las ventas de 2025.","Circularidad: talleres de reparación en casi todas las tiendas y segunda mano.","En Colombia, el Club premia reparar y comprar reacondicionado."],
+     ej:"“Más de la mitad de lo que venden ya tiene ecodiseño, y la circularidad está dentro del negocio: el Club da puntos por reparar y comprar reacondicionado.”"},
+    {q:"Un cliente está molesto por una devolución. ¿Cómo lo manejas?", a:"Todas",
+     how:["Escucha y reconoce.","Resuelve dentro de la política o escala rápido.","Registra el caso para corregir la causa."],
+     ej:"“Lo escucho y le explico qué puedo hacer ya. Después registro la causa: si se repite, es un problema de proceso, no de ese cliente.”"}
+  ];
+  document.getElementById("qlist").innerHTML = QS.map(function(x){
+    return '<details class="qa"><summary><span>' + esc(x.q) + '</span><span class="area">' + esc(x.a) + '</span></summary><div class="body">'
+      + '<ul>' + x.how.map(function(h){ return '<li>' + esc(h) + '</li>'; }).join("") + '</ul>'
+      + '<div class="ej"><b>Ejemplo:</b> ' + esc(x.ej) + '</div>'
+      + (x.note ? '<div class="note">' + esc(x.note) + '</div>' : '')
+      + '</div></details>';
+  }).join("");
+
+  /* ---------- Herramientas ---------- */
+  var ST = {
+    "conf-co":"Confirmado en Colombia", "conf-g":"Confirmado en el grupo", "prob":"Probable",
+    "ley":"Obligatorio en Colombia", "concept":"Concepto clave"
+  };
+  var AREA = {admin:"Administrativa", mkt:"Mercadeo", both:"Ambas áreas"};
+  var TOOLS = [
+    {id:"workspace", n:"Google Workspace", area:"both", st:"conf-g",
+     que:"La suite de Google en la nube: Gmail, Calendar, Meet, Chat, Drive, Docs, Sheets, Slides y Forms. Varias personas trabajan sobre el mismo archivo al mismo tiempo.",
+     dec:"El grupo tiene un equipo dedicado a administrar Workspace (publicó una vacante de Google Admin en Decathlon Technology). Lo normal es esperar correo, calendario, reuniones y documentos de equipo en Google.",
+     vocab:[["Unidad compartida","Carpeta de Drive que es del equipo, no de una persona. Si alguien se va, los archivos se quedan."],["Permisos","Lector, comentador o editor. Compartir bien evita versiones duplicadas."],["Historial de versiones","Muestra quién cambió qué y permite volver atrás."],["Google Forms","Encuestas que caen directo a una hoja de cálculo."],["Gemini","La IA de Google dentro de Gmail, Docs y Sheets para resumir, redactar o analizar."]],
+     frase:"Trabajo cómodo en herramientas colaborativas en la nube. En Workspace lo clave es tener unidades compartidas con permisos claros, para que todo el equipo trabaje sobre una sola versión.",
+     video:{id:"XHIRPSkebFE", t:"¿Qué es Google Workspace?"}},
+    {id:"sheets", n:"Google Sheets y Excel", area:"both", st:"prob",
+     que:"Hojas de cálculo. En retail son la navaja suiza: reportes de ventas, presupuestos, seguimiento de campañas, conciliaciones y bases que salen del ERP.",
+     dec:"Si usan Workspace, Sheets es la hoja de cálculo por defecto. La lógica es la de Excel; cambian algunos nombres y se suma la colaboración en vivo.",
+     vocab:[["Tabla dinámica","Resume miles de filas por tienda, mes o deporte en segundos. Es lo primero que te pueden pedir."],["BUSCARX / BUSCARV","Trae un dato de otra tabla usando un código, como el precio de una referencia."],["SUMAR.SI.CONJUNTO","Suma con varias condiciones: ventas de running en Bogotá en octubre."],["Formato condicional","Colorea celdas según reglas: semáforos de cumplimiento."],["IMPORTRANGE","Función de Sheets que trae datos de otro archivo; sirve para consolidar reportes de varias tiendas."]],
+     frase:"Para un reporte semanal armaría una base limpia, una tabla dinámica por tienda y categoría, y formato condicional para que las alertas salten solas.",
+     video:{id:"7Xrx07qEJI0", t:"Tablas dinámicas en Google Sheets"}},
+    {id:"looker", n:"Looker Studio (tableros)", area:"both", st:"prob",
+     que:"Herramienta gratuita de Google para crear dashboards que se actualizan solos, conectados a Sheets, Google Analytics, BigQuery y otras fuentes. Es el equivalente de Google a Power BI.",
+     dec:"Decathlon completó su migración total a la nube y trabaja con Google Cloud, así que los tableros conectados a esos datos son coherentes. No está confirmado que Decathlon Colombia lo use; el grupo también usa SAP Analytics Cloud (ver SAP).",
+     vocab:[["Fuente de datos","La conexión al origen: una hoja, GA4, BigQuery."],["Dimensión","Cómo agrupas: tienda, mes, deporte, canal."],["Métrica","Lo que mides: ventas, unidades, margen, visitas."],["Control de filtro","Selector de fechas o de tienda que cambia todo el tablero."],["Campo calculado","Una fórmula dentro del tablero, por ejemplo ventas ÷ transacciones."]],
+     frase:"Un tablero sirve si ayuda a tomar una decisión: primero acuerdo cuáles son las 3 a 5 métricas que importan y después lo construyo.",
+     video:{id:"lISeeBBvPKU", t:"Crea tu primer informe en Looker Studio"}, deep:{id:"yK6zVrNI8Kc", t:"Curso completo de Looker Studio"}},
+    {id:"sap", n:"SAP (ERP)", area:"admin", st:"conf-g",
+     que:"Un ERP es el sistema central donde viven compras, inventario, ventas y contabilidad, conectados entre sí. SAP es el ERP más usado por empresas grandes; S/4HANA es su versión moderna.",
+     dec:"El grupo opera SAP ECC (módulos de ventas SD y de materiales MM) y prepara la migración a SAP S/4HANA con horizonte 2028. También usa SAP Analytics Cloud para pronósticos de cadena de suministro y está integrando IA en procesos basados en SAP. El detalle de Colombia no es público, pero conviene llegar con el vocabulario.",
+     vocab:[["FI / CO","Contabilidad financiera / controlling: centros de costo y presupuestos."],["MM","Compras e inventario: órdenes de compra, entradas de mercancía, maestro de materiales."],["SD","Ventas y distribución: pedidos, entregas, facturación."],["Cruce de 3 vías","Orden de compra + entrada de mercancía + factura. Si los tres cuadran, se paga."],["Datos maestros","Fichas base de proveedor, producto y cliente. Si están mal, todo lo demás falla."],["Fiori","La interfaz moderna y más visual de S/4HANA."]],
+     fl:"Frase lista, si no lo has usado",
+     frase:"No he usado SAP directamente, pero entiendo la lógica de un ERP: todo nace en una orden de compra, pasa por la entrada de mercancía y cierra con la factura. Como entiendo el proceso, el sistema lo aprendo rápido.",
+     video:{id:"2bBxtV-7t5Y", t:"¿Qué es SAP y para qué sirve? En menos de 5 minutos"}},
+    {id:"dian", n:"Factura y nómina electrónica (DIAN)", area:"admin", st:"ley",
+     que:"En Colombia las empresas deben emitir facturas electrónicas validadas por la DIAN, reportar la nómina electrónica y usar documento soporte cuando compran a quien no está obligado a facturar.",
+     dec:"Como toda empresa grande del país, Decathlon Colombia opera bajo este esquema, normalmente con un proveedor tecnológico conectado al ERP. En un cargo administrativo es contexto que te pueden mencionar.",
+     vocab:[["CUFE","Código único que identifica cada factura electrónica."],["Nota crédito","Corrige o anula total o parcialmente una factura, por ejemplo por una devolución."],["Documento soporte","Soporta compras a personas o proveedores no obligados a facturar."],["Nómina electrónica","Reporte digital de la nómina a la DIAN."],["Conciliación","Cruzar ventas, facturación, recaudo y contabilidad para que cuadren."]],
+     frase:"En el día a día lo importante es que devoluciones y descuentos queden soportados con nota crédito, y que la conciliación entre ventas, facturación y contabilidad cuadre en cada cierre.",
+     video:{id:"Niqto0rumHQ", t:"Cómo facturar electrónicamente en la DIAN, paso a paso"}},
+    {id:"control", n:"Control interno y riesgo operativo", area:"admin", st:"concept",
+     que:"El control interno son las políticas, procedimientos y controles que protegen los activos, aseguran información confiable y el cumplimiento de normas. El riesgo operativo es la posibilidad de perder dinero por fallas en procesos, personas, sistemas o eventos externos. Los marcos más citados son COSO para control interno e ISO 31000 para gestión del riesgo.",
+     dec:"En retail los riesgos típicos son diferencias de inventario, faltantes en caja, compras mal soportadas, quiebres de stock y datos maestros equivocados. Con una expansión de 22 a 30–35 tiendas, lo valioso son controles estándar que se puedan replicar en cada apertura. No es público cómo lo organiza Decathlon Colombia.",
+     vocab:[["Matriz de riesgos","Lista de riesgos calificados por probabilidad e impacto, con su control y su responsable."],["Control preventivo y detectivo","Uno evita que el error ocurra (aprobación previa); el otro lo descubre después (conciliación)."],["Segregación de funciones","Quien pide una compra no la aprueba ni la paga."],["Merma","Pérdida de inventario por daño, error o robo. En inglés, shrinkage."],["Conteo cíclico","Contar una parte del inventario cada semana en lugar de todo una vez al año."],["Arqueo de caja","Verificar que el efectivo y los recaudos cuadren con lo registrado."]],
+     frase:"Me gustan los controles que no frenan la operación: conteos cíclicos por tienda en lugar de un inventario anual traumático, y segregación de funciones en compras y pagos.",
+     video:{search:"matriz de riesgos control interno explicación"}},
+    {id:"sfmc", n:"Salesforce Marketing Cloud (CRM)", area:"mkt", st:"conf-g",
+     que:"Plataforma para comunicarse con clientes de forma personalizada y automática: email, SMS, notificaciones push y recorridos según lo que hace cada persona.",
+     dec:"Decathlon Bélgica la pide en su vacante de experto CRM, consultores la implementan para Decathlon España y Francia, y Decathlon Chile tiene especialistas CRM que trabajan con ella. En Colombia no está confirmada, pero un programa como Decathlon Club necesita una herramienta de este tipo detrás.",
+     vocab:[["Journey Builder","Diseña recorridos automáticos: bienvenida, carrito abandonado, post-compra."],["Segmentación","Dividir la base por deporte, frecuencia, ciudad o etapa."],["RFM","Recencia, frecuencia y valor monetario. Decathlon Brasil lo pide en su vacante de CRM."],["CLV","Valor de vida del cliente: lo que deja en toda su relación con la marca."],["Tasa de apertura / CTR","Porcentaje que abre el correo / porcentaje que hace clic."],["Prueba A/B","Enviar dos versiones a grupos distintos y quedarse con la que mejor funciona."]],
+     frase:"Pensaría en journeys por deporte: quien compra tenis de running recibe a las tres semanas contenido de entrenamiento y, a los cuatro a seis meses, el recordatorio de cambiarlos.",
+     video:{id:"hwj-nj6HMCA", t:"Journey Builder: cómo construir un customer journey"}},
+    {id:"club", n:"Decathlon Club y la app", area:"mkt", st:"conf-co",
+     que:"El programa de membresía gratuito de Decathlon Colombia, lanzado en septiembre de 2026 con la campaña “Moverse es fácil”. Vive en la app de Decathlon.",
+     dec:"Da puntos por compras, por comprar reacondicionado, por usar el servicio de reparación, por calificar productos y por hacer deporte: la app se sincroniza con Strava, Garmin, Fitbit, Polar, Coros y Decathlon Coach, y premia a quien registra al menos dos horas de actividad a la semana. Decathlon tiene unos 2,5 millones de clientes en Colombia y espera crecer su base activa entre 20% y 25% en 2027. En México, su programa equivalente pasó de 1,36 millones de miembros y concentró cerca del 52% de la facturación de 2025.",
+     vocab:[["Cliente identificado","Venta en la que se sabe quién compró. Sin esto no hay CRM útil."],["Tasa de identificación","Porcentaje de las ventas hechas por clientes identificados."],["Base activa","Miembros que compraron o interactuaron en un periodo, por ejemplo 12 meses."],["Recompra o frecuencia","Cuántas veces vuelve un cliente en un periodo."],["Circularidad","Reparar, reacondicionar y revender. En el Club también suma puntos."]],
+     frase:"Me parece clave que el Club premie el movimiento y no solo la compra: además de fidelizar, le dice a Decathlon qué deporte practica cada persona para comunicarle lo relevante.",
+     video:{search:"Decathlon Club Colombia"}},
+    {id:"datos", n:"Protección de datos personales (Habeas Data)", area:"both", st:"ley",
+     que:"Habeas Data es el derecho de cada persona a conocer, actualizar, rectificar y pedir que se supriman sus datos. En Colombia lo regula la Ley 1581 de 2012 y lo vigila la Superintendencia de Industria y Comercio (SIC). Para tratar datos de un cliente hace falta su autorización previa, expresa e informada, y usarlos solo para la finalidad que se le explicó.",
+     dec:"Decathlon Club recoge datos de compra y de actividad física desde apps como Strava o Garmin. Los datos de actividad pueden rozar información de salud, que la ley trata como sensible, así que la autorización y la finalidad tienen que ser muy claras. Para mercadeo es un tema de confianza de marca, no solo legal.",
+     vocab:[["Autorización","Previa, expresa e informada: el cliente sabe qué se recoge y para qué."],["Finalidad","Los datos solo se usan para lo que se le dijo al cliente."],["Responsable y encargado","El responsable decide sobre los datos (la empresa); el encargado los procesa por cuenta de él, por ejemplo una plataforma de CRM."],["Dato sensible","Salud, biometría y otros que exigen protección reforzada."],["Política de tratamiento y aviso de privacidad","Donde la empresa explica qué hace con los datos y cómo ejercer los derechos."],["RNBD","Registro Nacional de Bases de Datos ante la SIC, obligatorio para ciertas empresas."]],
+     frase:"En un programa de fidelización la confianza es parte de la marca: autorización clara, finalidad explícita y un canal fácil para que el cliente actualice o retire sus datos. Eso además mejora la calidad de la base.",
+     video:{search:"Ley 1581 de 2012 protección de datos personales explicación"}},
+    {id:"ga4", n:"Google Analytics 4", area:"mkt", st:"prob",
+     que:"Mide lo que pasa en la web y la app: de dónde llega la gente, qué mira, dónde abandona y cuánto compra.",
+     dec:"Con cerca del 20% de las ventas del grupo en canales digitales, la analítica web es central. GA4 es el estándar del mercado; no está confirmado qué herramienta usa Decathlon Colombia.",
+     vocab:[["Evento","Cualquier acción medible: ver producto, añadir al carrito, comprar."],["Evento clave","La acción que importa al negocio, normalmente la compra. Antes se llamaba conversión."],["Fuente / medio","De dónde viene el tráfico: google / cpc, instagram / social, email."],["Embudo","Los pasos hasta la compra y cuánta gente se pierde en cada uno."],["Atribución","Cómo se reparte el mérito de una venta entre los canales que tocó el cliente."]],
+     frase:"Primero miraría el embudo: visitas, vista de producto, carrito y compra, para ver en qué paso se cae la gente antes de pedir más presupuesto.",
+     video:{id:"xw6wSkKUPow", t:"Google Analytics 4 en español, paso a paso"}},
+    {id:"ads", n:"Pauta digital: Meta Ads y Google Ads", area:"mkt", st:"prob",
+     que:"Plataformas de publicidad pagada: Meta Ads para Instagram y Facebook; Google Ads para buscador, YouTube y Shopping.",
+     dec:"Decathlon Italia publicó un caso en el que bajó 49% su costo por clic con anuncios de Google de inventario local, que muestran el stock de la tienda más cercana. Para un retailer omnicanal esa es la idea: que la pauta también lleve gente a tienda.",
+     vocab:[["CPC / CPM","Costo por clic / costo por mil impresiones."],["CTR","Porcentaje que hace clic después de ver el anuncio."],["ROAS","Ventas atribuidas ÷ inversión en pauta. ROAS 4: por cada $1 invertido vuelven $4."],["CAC","Costo de conseguir un cliente nuevo."],["Remarketing","Volver a impactar a quien ya visitó la web o la app."],["Inventario local","Anuncios que muestran si el producto está disponible en la tienda cercana."]],
+     frase:"En un retailer con tiendas no basta medir ventas online: quiero ver también el impacto en tienda, por ejemplo con anuncios de inventario local o con clientes identificados del Club.",
+     video:{id:"JGSw1SCxH-A", t:"Cómo crear anuncios en Meta Ads en 10 minutos"}},
+    {id:"adobe", n:"Adobe (Photoshop, Illustrator, After Effects) y manual de marca", area:"mkt", st:"conf-co",
+     que:"Photoshop para fotos, Illustrator para piezas y vectores, After Effects para animación. El manual de marca define cómo se usan logo, colores, tipografías y tono.",
+     dec:"Una vacante de diseño en mercadeo de Decathlon Colombia pide estas tres herramientas y velar por el manual de marca de Decathlon United en el país, trabajando con e-commerce, mercadeo, tiendas y proveedores.",
+     vocab:[["Brief","Documento corto con objetivo, público, mensaje, formatos y fecha. Es lo que mercadeo entrega a diseño o a la agencia."],["Key visual","La imagen principal de una campaña, de la que salen las demás piezas."],["Adaptaciones","Versiones de una pieza para cada formato: historia, post, vitrina, web."],["On / off","Piezas digitales / físicas: tienda, vallas, impresos."],["Decathlon United","Así aparece el grupo global en algunas comunicaciones y vacantes."]],
+     frase:"Aunque no diseñe, sé escribir un buen brief: objetivo, público, mensaje, formatos y fecha, alineado al manual de marca. Eso ahorra rondas de corrección.",
+     video:{search:"Photoshop e Illustrator para principiantes en español"}},
+    {id:"loc", n:"Localización de contenido (Phrase, Spid, Transit NXT)", area:"mkt", st:"conf-co",
+     que:"Herramientas para traducir y adaptar al mercado local los contenidos globales: fichas de producto, campañas, web.",
+     dec:"La vacante de Responsable de Localización y Contenido de Decathlon Colombia las nombra como herramientas internas que el cargo debe dominar, coordinando agencias y equipos globales.",
+     vocab:[["Localizar","Adaptar, no solo traducir: en Colombia se dice tenis, no zapatillas."],["Memoria de traducción","Base de frases ya traducidas para reutilizar y mantener coherencia."],["Glosario","Lista de términos aprobados por la marca."],["Ficha de producto","Texto, atributos y fotos de cada referencia en la web y la app."]],
+     frase:"Localizar es más que traducir: usar las palabras que la gente busca en Colombia mejora el SEO y la conversión de las fichas de producto.",
+     video:{search:"qué es localización de contenidos marketing"}},
+    {id:"nps", n:"NPS y voz del cliente", area:"both", st:"concept",
+     que:"Una sola pregunta: de 0 a 10, ¿qué tan probable es que recomiendes la marca? Promotores 9–10, pasivos 7–8, detractores 0–6. NPS = % promotores − % detractores, de −100 a +100.",
+     dec:"La opinión del cliente pesa mucho en Decathlon: el Club incluso da puntos por calificar productos, porque esas opiniones ayudan a mejorar las marcas propias. Calcula uno en la sección de KPIs.",
+     vocab:[["Promotor / detractor","Quien recomienda (9–10) / quien puede hablar mal (0–6)."],["CSAT","Satisfacción con una interacción puntual: una compra, una llamada."],["Cerrar el ciclo","Contactar al detractor y resolver. Ahí está el valor real."],["eNPS","La misma pregunta, a empleados, sobre la empresa como lugar de trabajo."]],
+     frase:"El número sirve como alarma; lo que mueve la aguja es leer los comentarios de los detractores, encontrar el patrón y cerrar el ciclo con una acción.",
+     video:{id:"2l_y5Ilg1Sw", t:"NPS: qué es, cómo calcularlo y cómo mejorarlo"}},
+    {id:"omni", n:"Omnicanalidad", area:"both", st:"concept",
+     que:"Tienda, web, app y redes funcionan como un solo canal: ves online, compras en tienda, recoges o devuelves donde quieras, con el mismo inventario y el mismo cliente identificado.",
+     dec:"El grupo cuenta como venta digital el e-commerce, los pedidos conectados hechos en tienda y el marketplace: 20,2% de las ventas en 2025. En Colombia la idea es que una tienda pequeña dé acceso a todo el catálogo por el canal digital.",
+     vocab:[["Click & collect","Compras online y recoges en tienda."],["Pedido conectado","El asesor pide desde la tienda algo que no hay en stock y le llega al cliente."],["Marketplace","Otras marcas venden dentro de la web de Decathlon."],["Inventario único","Un solo stock visible para todos los canales."]],
+     frase:"Para mí el reto omnicanal es el inventario: que lo que el cliente ve disponible en la app sea lo que de verdad encuentra en su tienda.",
+     video:{id:"Kngf3OnS0EM", t:"¿Qué es la omnicanalidad?"}}
+  ];
+  var STUDY = {
+    workspace:[["Introducción a Google Workspace, en español (Coursera)","https://www.coursera.org/specializations/getting-started-with-google-workspace-es","De Google Cloud. Se puede ver gratis como oyente."]],
+    sheets:[["Google Sheets en español (Coursera)","https://www.coursera.org/learn/google-sheets-es","De Google Cloud. Gratis como oyente."],["Google Sheets: temas avanzados, en español","https://www.coursera.org/learn/google-sheets---advanced-topics-es","Tablas dinámicas, gráficos y funciones."],["Centro de aprendizaje de Office (Microsoft)","https://support.office.com/es-es/article/Centro-de-aprendizaje-de-Office-b8f02f81-ec85-4493-a39b-4c48e6bc4bfb","Videos oficiales de Excel."],["SENA Sofía Plus","https://oferta.senasofiaplus.edu.co","Busca \u201cExcel\u201d: cursos virtuales gratis de 48 horas con certificado."]],
+    looker:[["Looker Studio Essentials (Google Skills)","https://www.skills.google/course_templates/1379?locale=es","Curso introductorio oficial."],["Guía de inicio rápido de Looker Studio","https://docs.cloud.google.com/looker/docs/studio/quick-start-guide?hl=es","Documentación oficial en español."]],
+    sap:[["SAP Learning: procesos básicos de ERP en S/4HANA","https://learning.sap.com/courses/executing-basic-erp-processes-with-sap-s-4hana","Plataforma oficial de SAP, en inglés."]],
+    dian:[["Facturación gratuita DIAN","https://www.dian.gov.co/fizcalizacioncontrol/herramienconsulta/FacturaElectronica/Facturaci%C3%B3n_Gratuita_DIAN/Paginas/Facturacion-Gratuita-DIAN.aspx","Página oficial con guías del sistema."]],
+    control:[["SENA Sofía Plus","https://oferta.senasofiaplus.edu.co","Busca \u201ccontrol interno\u201d o \u201cgestión del riesgo\u201d. La oferta cambia cada mes."]],
+    sfmc:[["Marketing Cloud Engagement: conceptos básicos (Trailhead)","https://trailhead.salesforce.com/es/content/learn/modules/mrkt_cloud_basics","Módulo oficial de Salesforce, gratis y en español."]],
+    club:[["Página oficial de Club Decathlon","https://www.decathlon.com.co/content/15-club-decathlon","Beneficios y condiciones."],["Lanzamiento de Decathlon Club (Mix News)","https://www.mixnewscolombia.com/2026/09/ahora-tiene-recompensa-decathlon-espera.html","Cómo funcionan los puntos por actividad."]],
+    datos:[["Ley 1581 de 2012 (Función Pública)","https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981","Texto oficial. Lee las definiciones y los principios."],["Campus virtual de la SIC","https://campusvirtual.sic.gov.co/aulavirtual/login/index.php","Cursos gratis de la SIC, entre ellos de datos personales."]],
+    ga4:[["Skillshop de Google","https://skillshop.exceedlms.com/","Curso y certificación sin costo de Google Analytics."],["Cómo funcionan las certificaciones de Skillshop","https://support.google.com/skillshop/answer/14744470?hl=es-419","Ayuda oficial de Google, en español."]],
+    ads:[["Skillshop de Google","https://skillshop.exceedlms.com/","Cursos y certificación sin costo de Google Ads."],["Meta Blueprint","https://www.facebookblueprint.com/student/catalog","Cursos gratis de publicidad en Meta. El examen de certificación se paga aparte."]],
+    adobe:[["Adobe Learn: introducción a Photoshop","https://www.adobe.com/es/learn/photoshop/in-app/introduction-to-the-workspace","Tutorial oficial de 3 minutos."]],
+    nps:[["Guía de NPS (Qualtrics)","https://www.qualtrics.com/es/articles/customer-experience/net-promoter-score/","En español, con cálculo y ejemplos."]],
+    omni:[["Guía de retail omnicanal (Amazon Ads)","https://advertising.amazon.com/es-mx/library/guides/omnichannel-retail","Conceptos y ejemplos en español."]]
+  };
+  function studyBlock(id){
+    var s = STUDY[id];
+    if (!s) return "";
+    return '<div class="study"><b>Dónde estudiar</b><ul>' + s.map(function(x){
+      return '<li><a href="' + esc(x[1]) + '" target="_blank" rel="noopener">' + esc(x[0]) + '</a>' + (x[2] ? '<span>' + esc(x[2]) + '</span>' : '') + '</li>';
+    }).join("") + '</ul></div>';
+  }
+  document.getElementById("tools").innerHTML = TOOLS.map(function(t){
+    return '<details class="tool" id="t-' + t.id + '" data-area="' + t.area + '"><summary>'
+      + '<h3>' + esc(t.n) + '</h3><span class="tog" aria-hidden="true">+</span>'
+      + '<div class="meta"><span class="badge st-' + t.st + '">' + ST[t.st] + '</span><span>' + AREA[t.area] + '</span></div>'
+      + '</summary><div class="body"><dl class="kv">'
+      + '<dt>Qué es</dt><dd>' + esc(t.que) + '</dd>'
+      + '<dt>En Decathlon</dt><dd>' + esc(t.dec) + '</dd>'
+      + '<dt>Vocabulario que te pueden soltar</dt><dd><ul class="vocab">'
+      + t.vocab.map(function(v){ return '<li><b>' + esc(v[0]) + ':</b> ' + esc(v[1]) + '</li>'; }).join("")
+      + '</ul></dd></dl>'
+      + '<blockquote class="frase"><b>' + esc(t.fl || "Frase lista") + '</b>“' + esc(t.frase) + '”</blockquote>'
+      + videoBlock(t.video, t.deep)
+      + studyBlock(t.id)
+      + '</div></details>';
+  }).join("");
+
+  // Abrir la tarjeta si se llega por enlace (#t-club)
+  function openFromHash(){
+    var h = location.hash;
+    if (h && h.indexOf("#t-") === 0){ var el = document.querySelector(h); if (el) el.open = true; }
+  }
+  window.addEventListener("hashchange", openFromHash); openFromHash();
+
+  // Filtros
+  var chips = document.querySelectorAll(".chip");
+  Array.prototype.forEach.call(chips, function(c){
+    c.addEventListener("click", function(){
+      var f = c.getAttribute("data-f");
+      Array.prototype.forEach.call(chips, function(o){ o.setAttribute("aria-pressed", o === c ? "true" : "false"); });
+      Array.prototype.forEach.call(document.querySelectorAll(".tool"), function(t){
+        var a = t.getAttribute("data-area");
+        t.classList.toggle("hidden", !(f === "all" || a === f || a === "both"));
+      });
+    });
+  });
+
+  /* ---------- KPIs ---------- */
+  var nf0 = new Intl.NumberFormat("es-CO", {maximumFractionDigits:0});
+  var nf1 = new Intl.NumberFormat("es-CO", {maximumFractionDigits:1});
+  var KPIS = [
+    {n:"Ticket promedio", f:"Ventas ÷ número de transacciones", i:[["Ventas ($)",45000000],["Transacciones",750]],
+     c:function(a,b){ return b ? "$" + nf0.format(a/b) : "—"; },
+     tip:"Si sube el tráfico pero baja el ticket, quizá llegan clientes nuevos con compras de entrada. No siempre es malo."},
+    {n:"Margen bruto", f:"(Ventas − costo de lo vendido) ÷ ventas", i:[["Ventas ($)",118000000],["Costo de lo vendido ($)",70800000]],
+     c:function(a,b){ return a ? nf1.format((a-b)/a*100) + "%" : "—"; },
+     tip:"Un descuento fuerte puede subir las ventas y aun así bajar el margen total. Siempre miro los dos."},
+    {n:"Rotación de inventario", f:"Costo de lo vendido ÷ inventario promedio", i:[["Costo de lo vendido al año ($)",1200000000],["Inventario promedio ($)",300000000]],
+     c:function(a,b){ if (!b || !a) return "—"; var r=a/b; return nf1.format(r) + " veces al año · " + nf0.format(365/r) + " días"; },
+     tip:"Rotación baja es plata quieta en bodega; demasiado alta puede significar productos agotados."},
+    {n:"Tasa de conversión", f:"Transacciones ÷ visitantes", i:[["Transacciones",750],["Visitantes",5000]],
+     c:function(a,b){ return b ? nf1.format(a/b*100) + "%" : "—"; },
+     tip:"En tienda sale del conteo de personas; online, de GA4. Las dos responden: de los que entran, ¿cuántos compran?"},
+    {n:"NPS", f:"% promotores − % detractores", i:[["% promotores",60],["% detractores",15]],
+     c:function(a,b){ return nf0.format(a-b); },
+     tip:"Por encima de 0 ya es positivo y por encima de 50 es excelente. El valor real está en los comentarios."},
+    {n:"ROAS", f:"Ventas atribuidas ÷ inversión en pauta", i:[["Ventas atribuidas ($)",20000000],["Inversión ($)",5000000]],
+     c:function(a,b){ return b ? nf1.format(a/b) + "x" : "—"; },
+     tip:"Un ROAS de 4 significa que por cada peso invertido volvieron cuatro en ventas, antes de descontar el costo del producto."}
+  ];
+  var kl = document.getElementById("kpilist");
+  kl.innerHTML = KPIS.map(function(k, idx){
+    return '<div class="kpi" data-k="' + idx + '"><h3>' + esc(k.n) + '</h3><p class="f">' + esc(k.f) + '</p><div class="in">'
+      + k.i.map(function(p, j){ return '<label>' + esc(p[0]) + '<input type="number" inputmode="decimal" step="any" min="0" value="' + p[1] + '" data-j="' + j + '"></label>'; }).join("")
+      + '</div><output></output><p class="tip">“' + esc(k.tip) + '”</p></div>';
+  }).join("");
+  function calcKpi(card){
+    var k = KPIS[+card.getAttribute("data-k")];
+    var ins = card.querySelectorAll("input");
+    var a = parseFloat(ins[0].value) || 0, b = parseFloat(ins[1].value) || 0;
+    card.querySelector("output").textContent = k.c(a, b);
+  }
+  Array.prototype.forEach.call(kl.querySelectorAll(".kpi"), function(card){
+    calcKpi(card);
+    card.addEventListener("input", function(){ calcKpi(card); });
+  });
+
+  /* ---------- Quiz ---------- */
+  var QUIZ = [
+    {q:"¿Cuál es el propósito de Decathlon desde 2024?", o:["Just do it","Move People Through the Wonders of Sport","Impossible is nothing","Sport for the champions"], a:1,
+     w:"Mover a las personas a través de las maravillas del deporte. Los otros dos famosos son de Nike y Adidas."},
+    {q:"¿Cuándo y dónde abrió Decathlon su primera tienda en Colombia?", o:["2012, Medellín","2015, Andino en Bogotá","2017, La Colina en Bogotá","2020, Cali"], a:2,
+     w:"2017, en La Colina. En 2027 cumplen 10 años en el país."},
+    {q:"¿Cuántas tiendas quiere tener Decathlon en Colombia en 2030?", o:["15 a 20","22 a 25","30 a 35","50"], a:2,
+     w:"Entre 30 y 35, desde 22 a octubre de 2026. Además quieren el 10% del mercado deportivo."},
+    {q:"¿Qué ERP usa el grupo y hacia qué versión está migrando?", o:["Oracle, hacia NetSuite","SAP ECC, hacia S/4HANA con horizonte 2028","Microsoft Dynamics, hacia la nube","Un sistema propio sin ERP"], a:1,
+     w:"SAP ECC hoy, con migración a SAP S/4HANA prevista hacia 2028."},
+    {q:"Si 60% son promotores, 25% pasivos y 15% detractores, ¿cuál es el NPS?", o:["60","45","75","35"], a:1,
+     w:"NPS = 60 − 15 = 45. Los pasivos no entran en la resta."},
+    {q:"¿Cuáles son los cuatro valores de Decathlon?", o:["Pasión, excelencia, innovación, respeto","Vitalidad, generosidad, responsabilidad, autenticidad","Velocidad, fuerza, resistencia, técnica","Calidad, precio, servicio, cercanía"], a:1,
+     w:"Vitalidad, generosidad, responsabilidad y autenticidad. Ten un ejemplo tuyo para cada uno."},
+    {q:"¿Cuál es la marca experta de running?", o:["Kipsta","Kiprun","Kuikma","Domyos"], a:1,
+     w:"Kiprun. Kipsta es deportes de equipo, Kuikma raqueta y Domyos fitness."},
+    {q:"¿Qué deportes son los que más crecen en Decathlon Colombia?", o:["Fútbol y ciclismo","Pádel y voleibol","Natación y running","Golf y tenis"], a:1,
+     w:"Pádel y voleibol. Los más fuertes en ventas son running, fitness, natación, montaña y ciclismo."},
+    {q:"Una campaña tiene ROAS de 4. ¿Qué significa?", o:["Llegó a 4 millones de personas","Por cada $1 invertido volvieron $4 en ventas","Costó 4 veces lo previsto","Tuvo 4% de clics"], a:1,
+     w:"ROAS = ventas atribuidas ÷ inversión en pauta."},
+    {q:"En Looker Studio, “tienda” y “mes” son…", o:["Métricas","Dimensiones","Fuentes de datos","Filtros calculados"], a:1,
+     w:"Las dimensiones agrupan; las métricas son lo que mides, como ventas o unidades."},
+    {q:"¿Qué hace Journey Builder en Salesforce Marketing Cloud?", o:["Diseña la tienda física","Crea recorridos automáticos de mensajes según lo que hace cada cliente","Lleva la contabilidad","Programa los turnos del personal"], a:1,
+     w:"Recorridos como bienvenida, carrito abandonado o post-compra, por email, SMS o push."},
+    {q:"Costo de lo vendido al año: $1.200 M. Inventario promedio: $300 M. ¿Rotación?", o:["2 veces","4 veces, unos 91 días","0,25 veces","12 veces"], a:1,
+     w:"1.200 ÷ 300 = 4 veces al año, o sea unos 91 días de inventario (365 ÷ 4)."},
+    {q:"¿Qué documento corrige una factura electrónica por una devolución?", o:["Documento soporte","Nota crédito","CUFE","Orden de compra"], a:1,
+     w:"La nota crédito. El CUFE es el código único de cada factura."},
+    {q:"¿Qué premia Decathlon Club, además de las compras?", o:["Solo las compras online","Hacer deporte, reparar, comprar reacondicionado y calificar productos","Referir amigos únicamente","Nada más: es un descuento fijo"], a:1,
+     w:"La app se conecta con Strava, Garmin y otras, y premia al menos dos horas de actividad semanal."},
+    {q:"¿Qué entidad vigila la protección de datos personales en Colombia?", o:["La DIAN","La Superintendencia de Industria y Comercio (SIC)","La Superintendencia Financiera","El Ministerio TIC"], a:1,
+     w:"La SIC, con su Delegatura para la Protección de Datos Personales. La ley general es la 1581 de 2012."},
+    {q:"¿Qué es la segregación de funciones?", o:["Dividir el trabajo por turnos","Que una misma persona no pueda pedir, aprobar y pagar una compra","Separar las tiendas por ciudad","Tener un jefe por área"], a:1,
+     w:"Es un control básico: separar quién solicita, quién aprueba y quién paga reduce errores y fraude."}
+  ];
+  var qi = 0, qs = 0, box = document.getElementById("quizbox");
+  function shuffle(a){ for (var i = a.length - 1; i > 0; i--){ var r = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[r]; a[r] = t; } return a; }
+  function renderQ(){
+    if (qi >= QUIZ.length){ return renderEnd(); }
+    var x = QUIZ[qi];
+    box.innerHTML = '<div class="qhead"><span>Pregunta ' + (qi+1) + ' de ' + QUIZ.length + '</span><span>Aciertos: ' + qs + '</span></div>'
+      + '<div class="qbar"><i style="width:' + (qi/QUIZ.length*100) + '%"></i></div>'
+      + '<h3>' + esc(x.q) + '</h3><div class="opts">'
+      + shuffle(x.o.map(function(o, j){ return j; })).map(function(j){ return '<button class="opt" type="button" data-o="' + j + '">' + esc(x.o[j]) + '</button>'; }).join("")
+      + '</div><div id="qfb"></div>';
+  }
+  function renderEnd(){
+    var pct = Math.round(qs/QUIZ.length*100);
+    if (pct > (state.quizBest || 0)){ state.quizBest = pct; save(); updateProgress(); }
+    var msg = pct === 100 ? "Perfecto: lista para la entrevista." : pct >= 80 ? "Lista. Repasa solo las que fallaste." : pct >= 50 ? "Vas bien. Vuelve a Herramientas y Colombia y repite." : "Haz la ruta sugerida y vuelve a intentarlo.";
+    box.innerHTML = '<div class="qhead"><span>Resultado</span><span>Mejor puntaje: ' + state.quizBest + '%</span></div>'
+      + '<div class="score">' + pct + '%</div><p>' + qs + ' de ' + QUIZ.length + ' correctas. ' + msg + '</p>'
+      + '<button class="btn" type="button" id="qretry">Repetir el quiz</button>';
+    document.getElementById("qretry").addEventListener("click", function(){ qi = 0; qs = 0; renderQ(); });
+  }
+  box.addEventListener("click", function(e){
+    var b = e.target.closest(".opt");
+    if (b && !b.disabled){
+      var x = QUIZ[qi], j = +b.getAttribute("data-o"), ok = j === x.a;
+      if (ok) qs++;
+      Array.prototype.forEach.call(box.querySelectorAll(".opt"), function(o){
+        var k = +o.getAttribute("data-o");
+        o.disabled = true;
+        if (k === x.a) o.classList.add("ok");
+        else if (k === j) o.classList.add("ko");
+      });
+      document.getElementById("qfb").innerHTML = '<div class="why"><b>' + (ok ? "Correcto. " : "No es esa. ") + '</b>' + esc(x.w) + '</div>'
+        + '<button class="btn" type="button" id="qnext">' + (qi + 1 < QUIZ.length ? "Siguiente pregunta" : "Ver resultado") + '</button>';
+      box.querySelector(".qhead span:last-child").textContent = "Aciertos: " + qs;
+      document.getElementById("qnext").focus();
+      return;
+    }
+    if (e.target.id === "qnext"){ qi++; renderQ(); }
+  });
+  renderQ();
+
+  /* ---------- Checklist ---------- */
+  var CHECKS = [
+    "Visité una tienda Decathlon y anoté dos cosas buenas y una mejora",
+    "Descargué la app y revisé Decathlon Club",
+    "Preparé mi historia deportiva: qué practico, desde cuándo y qué me ha enseñado",
+    "Tengo tres historias STAR: un logro, un problema resuelto y un trabajo en equipo",
+    "Me sé las cifras de Colombia: 2017, 22 tiendas, 30–35 a 2030 y Decathlon Club",
+    "Me sé los cuatro valores y tengo un ejemplo mío de cada uno",
+    "Leí la vacante y la conecté con tres herramientas de esta guía",
+    "Tengo tres preguntas para hacer al final",
+    "Hice el quiz con 80% o más",
+    "Confirmé hora, lugar o enlace, y voy a llegar 10 minutos antes"
+  ];
+  var cl = document.getElementById("checks");
+  cl.innerHTML = CHECKS.map(function(c, i){
+    return '<li><label><input type="checkbox" data-c="' + i + '"' + (state.checks[i] ? " checked" : "") + '><span>' + esc(c) + '</span></label></li>';
+  }).join("");
+  cl.addEventListener("change", function(e){
+    var i = e.target.getAttribute("data-c");
+    if (i === null) return;
+    state.checks[i] = e.target.checked; save(); updateProgress();
+  });
+
+  /* ---------- Avance ---------- */
+  var tracked = document.querySelectorAll("section[data-track]");
+  function updateProgress(){
+    var seen = 0;
+    Array.prototype.forEach.call(tracked, function(s){
+      var on = !!state.seen[s.id];
+      if (on) seen++;
+      var a = document.querySelector('.nav a[data-s="' + s.id + '"]');
+      if (a) a.classList.toggle("seen", on);
+    });
+    var done = 0; for (var i = 0; i < CHECKS.length; i++) if (state.checks[i]) done++;
+    var p = Math.round(seen/tracked.length*30 + done/CHECKS.length*50 + (state.quizBest||0)/100*20);
+    var lane = document.getElementById("lane");
+    lane.style.setProperty("--pv", p/100);
+    lane.setAttribute("aria-valuenow", p);
+    document.getElementById("pct").textContent = p + "%";
+  }
+  if ("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting && !state.seen[en.target.id]){ state.seen[en.target.id] = true; save(); updateProgress(); }
+      });
+    }, {rootMargin:"0px 0px -55% 0px", threshold:0});
+    Array.prototype.forEach.call(tracked, function(s){ io.observe(s); });
+  }
+  updateProgress();
+})();
+</script>
+</body>
+</html>
